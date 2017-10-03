@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0682053aa63bef4989a77d8407fb83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 3
+  delay: 0
   attackSpeed: 1
 --- !u!54 &742808160
 Rigidbody:
