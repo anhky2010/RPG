@@ -2,29 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterStats))]
 public class Combat : MonoBehaviour
 {
     public static Combat instance;
     CharacterStats characterStats;
+    EnermyAnimation enermyAnimation;
+    //public event System.Action OnAttack;
     public delegate void OnCombat();
     public OnCombat onCombat;
     public float delay = .0f;
     public float attackSpeed = 1f;
     private float attackCooldown = 0;
+    void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
+        enermyAnimation = GetComponent<EnermyAnimation>();
         characterStats = GetComponent<CharacterStats>();
-        instance = this;
     }
     private void Update()
     {
         attackCooldown -= Time.deltaTime;
     }
+
+    bool isAttackingPlayer = false;
+
     public void Attack(CharacterStats targetStats)
     {
+
+
+
         if (attackCooldown <= 0f)
         {
+            enermyAnimation.AttackAnimation();
+            if (enermyAnimation.animator.GetCurrentAnimatorStateInfo(0).IsName("UD_infantry_07_attack_A"))
+            {
+                return;
+            }
+
             if (isAttackingPlayer == false)
             {
                 isAttackingPlayer = true;
@@ -32,9 +49,8 @@ public class Combat : MonoBehaviour
                 attackCooldown = 1f / attackSpeed;
             }
         }
-
     }
-    bool isAttackingPlayer = false;
+
     IEnumerator DoDamage(CharacterStats stats, float deleyTime)
     {
         yield return new WaitForSeconds(deleyTime);

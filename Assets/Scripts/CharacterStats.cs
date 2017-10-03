@@ -19,10 +19,10 @@ public class CharacterStats : MonoBehaviour
     {
         instance = this;
         currentHealth = maxHealth;
-         
-    } 
 
-    public  void TakeDamage(int dmg)
+    }
+
+    public void TakeDamage(int dmg)
     {
         dmg -= armor.GetFinalValue();
         dmg = Mathf.Clamp(dmg, 0, int.MaxValue);

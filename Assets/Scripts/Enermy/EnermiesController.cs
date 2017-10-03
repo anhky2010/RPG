@@ -16,11 +16,12 @@ public class EnermiesController : MonoBehaviour
     // Use this for initializations
     void Start()
     {
+
         agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform;
         combat = GetComponent<Combat>();
         enemy = GetComponent<Enemy>();
-        startPosition = transform.position; 
+        startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -36,12 +37,9 @@ public class EnermiesController : MonoBehaviour
             {
                 if (targetStats != null)
                 {
-                    combat.Attack(targetStats);//tan cong nguoi choi
-                    
+                    combat.Attack(targetStats); //tan cong nguoi choi
                 }
             }
-             
-
         }
         else agent.SetDestination(startPosition);
     }

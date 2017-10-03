@@ -5,17 +5,14 @@ using UnityEngine.AI;
 public class EnermyAnimation : MonoBehaviour
 {
 
-    const float locaomationAnimationSmoothTime = .1f;
-
     NavMeshAgent agent;
     float tempSpeed;
-    Animator animator;
-    // Use this for initialization
+    public Animator animator;
+    public bool isAttack = false;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
-       // Combat.instance.onCombat += Attack;
+        animator = GetComponent<Animator>();
         tempSpeed = agent.speed;
     }
 
@@ -25,26 +22,28 @@ public class EnermyAnimation : MonoBehaviour
         Run();
     }
 
-
     public void Run()
     {
         float speed = agent.velocity.magnitude / agent.speed;
         animator.SetFloat("SpeedEnemy", speed);
 
-        WaitForAnimator("UD_infantry_07_attack_A"); 
+        WaitForAnimator("UD_infantry_07_attack_A");
     }
-    private void WaitForAnimator(string animation_name)
+    public void WaitForAnimator(string animation_name)
     {
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName(animation_name))
         {
             agent.speed = 0;
+
         }
         else agent.speed = tempSpeed;
 
     }
-    public void Attack()
+    public void AttackAnimation()
     {
         animator.SetTrigger("EnermyAttack");
-        //Debug.Log("Animation tan cong!");
+        Debug.Log("Animation tan cong!");
     }
+
+
 }

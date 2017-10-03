@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterStats))]
-public class Enemy : Intertactable {
+public class Enemy : Intertactable
+{
 
     PlayerManager playerManager;
     CharacterStats selfStats;
@@ -17,10 +18,10 @@ public class Enemy : Intertactable {
     {
         base.Interact();
         Combat playerCombat = playerManager.player.GetComponent<Combat>();
-        if (playerCombat!=null)
+        if (playerCombat != null)
         {
             playerCombat.Attack(selfStats);// bi nguoi choi tan cong
         }
-        
+
     }
 }

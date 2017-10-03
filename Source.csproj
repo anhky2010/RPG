@@ -78,8 +78,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Enemy.cs" />
-    <Compile Include="Assets\EnermyStats.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -128,8 +126,10 @@
     <Compile Include="Assets\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Combat.cs" />
-    <Compile Include="Assets\Scripts\EnermiesController.cs" />
-    <Compile Include="Assets\Scripts\Inventory\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Enermy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Enermy\EnermiesController.cs" />
+    <Compile Include="Assets\Scripts\Enermy\EnermyAnimation.cs" />
+    <Compile Include="Assets\Scripts\Enermy\EnermyStats.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
@@ -138,6 +138,7 @@
     <Compile Include="Assets\Scripts\Item\Equipment.cs" />
     <Compile Include="Assets\Scripts\Item\Intertactable.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraController.cs" />
     <Compile Include="Assets\Scripts\Player\EquipmentManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControlScript.cs" />
