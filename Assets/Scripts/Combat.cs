@@ -9,7 +9,7 @@ public class Combat : MonoBehaviour
     CharacterStats characterStats;
     public delegate void OnCombat();
     public OnCombat onCombat;
-    float delay = .6f;
+    public float delay = .0f;
     public float attackSpeed = 1f;
     private float attackCooldown = 0;
     private void Start()
@@ -25,20 +25,26 @@ public class Combat : MonoBehaviour
     {
         if (attackCooldown <= 0f)
         {
-            StartCoroutine(DoDamage(targetStats, delay));
-            attackCooldown = 1f / attackSpeed;
+            if (isAttackingPlayer == false)
+            {
+                isAttackingPlayer = true;
+                StartCoroutine(DoDamage(targetStats, delay));
+                attackCooldown = 1f / attackSpeed;
+            }
         }
 
     }
-
+    bool isAttackingPlayer = false;
     IEnumerator DoDamage(CharacterStats stats, float deleyTime)
     {
         yield return new WaitForSeconds(deleyTime);
-        stats.TakeDamage(characterStats.damage.GetFinalValue());
+        isAttackingPlayer = false;
         if (onCombat != null)
         {
             onCombat.Invoke();
         }
+        stats.TakeDamage(characterStats.damage.GetFinalValue());
+
     }
 
 }
