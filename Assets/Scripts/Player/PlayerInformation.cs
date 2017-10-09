@@ -19,7 +19,7 @@ public class PlayerInformation : MonoBehaviour
         PlayerStats.instance_player.onPlayerStatsChanged += onPlayerStatsChanged;
         Combat.instance.onCombat += onPlayerStatsChanged;
     }
- 
+
     private void onPlayerStatsChanged()
     {
         Text text = GetComponent<Text>();

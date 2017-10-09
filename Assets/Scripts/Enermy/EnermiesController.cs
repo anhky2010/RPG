@@ -11,8 +11,7 @@ public class EnermiesController : MonoBehaviour
     private Vector3 startPosition;
     Enemy enemy;
     Combat combat;
-
-    float tempSpeed;
+    EnermyStats enermyStats;
     // Use this for initializations
     void Start()
     {
@@ -21,7 +20,10 @@ public class EnermiesController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         combat = GetComponent<Combat>();
         enemy = GetComponent<Enemy>();
+        enermyStats = GetComponent<EnermyStats>();
         startPosition = transform.position;
+
+        agent.speed = enermyStats.speed.GetFinalValue();
     }
 
     // Update is called once per frame

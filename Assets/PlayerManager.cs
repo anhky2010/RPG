@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour
+{
 
     public static PlayerManager instance;
     private void Awake()
     {
-        if (instance!=null)
+        if (instance != null)
         {
             return;
         }

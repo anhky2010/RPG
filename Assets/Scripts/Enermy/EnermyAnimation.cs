@@ -5,40 +5,34 @@ using UnityEngine.AI;
 public class EnermyAnimation : MonoBehaviour
 {
 
-    NavMeshAgent agent;
-    float tempSpeed;
+
     public Animator animator;
     public bool isAttack = false;
-    void Start()
+    private NavMeshAgent agent;
+    EnermyStats enermyStats;
+    private void Start()
     {
+        enermyStats = GetComponent<EnermyStats>();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        tempSpeed = agent.speed;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Run();
     }
 
-    public void Run()
+    private void Run()
     {
         float speed = agent.velocity.magnitude / agent.speed;
         animator.SetFloat("SpeedEnemy", speed);
 
-        WaitForAnimator("UD_infantry_07_attack_A");
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("UD_infantry_07_attack_A"))
+        { agent.speed = 0.1F; }
+        else agent.speed = enermyStats.speed.GetFinalValue();
     }
-    public void WaitForAnimator(string animation_name)
-    {
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName(animation_name))
-        {
-            agent.speed = 0;
 
-        }
-        else agent.speed = tempSpeed;
-
-    }
     public void AttackAnimation()
     {
         animator.SetTrigger("EnermyAttack");

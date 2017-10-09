@@ -31,30 +31,24 @@ public class Combat : MonoBehaviour
 
     public void Attack(CharacterStats targetStats)
     {
-
-
-
         if (attackCooldown <= 0f)
         {
-            enermyAnimation.AttackAnimation();
-            if (enermyAnimation.animator.GetCurrentAnimatorStateInfo(0).IsName("UD_infantry_07_attack_A"))
+            if (enermyAnimation != null)
             {
-                return;
+                if (enermyAnimation.animator.GetCurrentAnimatorStateInfo(0).IsName("UD_infantry_07_attack_A"))
+                    return;
+                enermyAnimation.AttackAnimation();
             }
 
-            if (isAttackingPlayer == false)
-            {
-                isAttackingPlayer = true;
-                StartCoroutine(DoDamage(targetStats, delay));
-                attackCooldown = 1f / attackSpeed;
-            }
+            StartCoroutine(DoDamage(targetStats, delay));
+            attackCooldown = 1f / attackSpeed;
+
         }
     }
 
     IEnumerator DoDamage(CharacterStats stats, float deleyTime)
     {
         yield return new WaitForSeconds(deleyTime);
-        isAttackingPlayer = false;
         if (onCombat != null)
         {
             onCombat.Invoke();
