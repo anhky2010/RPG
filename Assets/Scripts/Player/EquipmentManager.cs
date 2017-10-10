@@ -37,7 +37,7 @@ public class EquipmentManager : MonoBehaviour
         Unequip(slotIndex);
 
         Equipment oldItem = Unequip(slotIndex);
-    
+
 
         SetEquipmentShapes(newEquipment, 100);
         currentEquipment[slotIndex] = newEquipment;
@@ -83,7 +83,7 @@ public class EquipmentManager : MonoBehaviour
             return oldItem;
         }
         return null;
-        
+
     }
 
 
@@ -98,8 +98,8 @@ public class EquipmentManager : MonoBehaviour
     public void UnequipAll()
     {
         for (int i = 0; i < currentEquipment.Length; i++)
-        { 
-            Unequip(i); 
+        {
+            Unequip(i);
         }
         EquipDefaultItems();
     }

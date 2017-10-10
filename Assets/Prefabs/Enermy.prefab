@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 114056083037150434}
   - component: {fileID: 114912971585460030}
   - component: {fileID: 195304057273735502}
+  - component: {fileID: 114847947621539774}
   m_Layer: 0
   m_Name: Enermy
   m_TagString: Untagged
@@ -700,7 +701,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391650077936172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.52, y: 0, z: 0}
+  m_LocalPosition: {x: -1.42, y: 0, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4556140539583250}
@@ -944,6 +945,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2.5
   interactableTranform: {fileID: 4638206570280924}
+--- !u!114 &114847947621539774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391650077936172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db006954698b3334cb9cc05ff4834712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interactableTranform: {fileID: 0}
 --- !u!114 &114904766100066556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -975,6 +989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.5
   attackSpeed: 1
+  isPlayer: 0
 --- !u!136 &136455190863801386
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -9,7 +9,7 @@ public class EnermiesController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     private Vector3 startPosition;
-    Enermy enemy;
+    EnermyScript enemy;
     Combat combat;
     EnermyStats enermyStats;
     // Use this for initializations
@@ -19,7 +19,7 @@ public class EnermiesController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform;
         combat = GetComponent<Combat>();
-        enemy = GetComponent<Enermy>();
+        enemy = GetComponent<EnermyScript>();
         enermyStats = GetComponent<EnermyStats>();
         startPosition = transform.position;
 

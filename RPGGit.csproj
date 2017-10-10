@@ -152,6 +152,7 @@
     <Compile Include="Assets\Scripts\Enermy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermiesController.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermyAnimation.cs" />
+    <Compile Include="Assets\Scripts\Enermy\EnermyScript.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermyStats.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />

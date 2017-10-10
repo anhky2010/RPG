@@ -23,7 +23,7 @@ public class Intertactable : MonoBehaviour
 
     public virtual void Interact()
     {
-       // Debug.Log("Va cham");
+        // Debug.Log("Va cham");
     }
     public void onFocused(Transform playertransform)
     {
@@ -40,7 +40,7 @@ public class Intertactable : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (interactableTranform==null )
+        if (interactableTranform == null)
         {
             interactableTranform = this.transform;
         }
