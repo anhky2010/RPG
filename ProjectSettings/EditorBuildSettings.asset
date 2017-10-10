@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/UniRPG/System/gamescene.unity
+    guid: edb211787a9d2d549bf3eb0187718a17
+  - enabled: 1
+    path: Assets/UniRPG/System/menudata.unity
+    guid: 9772c0b954adb6d43b0be8f0c2680559
+  - enabled: 1
+    path: Assets/UniRPG/System/startup.unity
+    guid: 78e29ef81c755ea4faadc5d3929b684b
+  - enabled: 1
+    path: Assets/UniRPG/System/unirpg.unity
+    guid: 288f8e6863d71ae4584ee048bb8c728a

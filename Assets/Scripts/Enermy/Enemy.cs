@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterStats))]
-public class Enemy : Intertactable
+public class Enermy : Intertactable
 {
 
     PlayerManager playerManager;
