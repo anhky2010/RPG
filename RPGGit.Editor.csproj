@@ -131,7 +131,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\Editor\TurnOffRenderers.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Editor\Attributes\PostProcessingModelEditorAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Editor\Models\AmbientOcclusionModelEditor.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Editor\Models\AntialiasingModelEditor.cs" />

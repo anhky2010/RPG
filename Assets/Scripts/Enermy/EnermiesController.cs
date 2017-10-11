@@ -15,7 +15,6 @@ public class EnermiesController : MonoBehaviour
     // Use this for initializations
     void Start()
     {
-
         agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform;
         combat = GetComponent<Combat>();

@@ -16,11 +16,11 @@ public class EnermyScript : Intertactable
     public override void Interact()
     {
         base.Interact();
-        Combat playerCombat = playerManager.player.GetComponent<Combat>();
-        if (playerCombat != null)
-        {
-            playerCombat.Attack(selfStats);// bi nguoi choi tan cong
-        }
+        //Combat playerCombat = playerManager.player.GetComponent<Combat>();
+        //if (playerCombat != null)
+        //{
+        //    playerCombat.Attack(selfStats);// bi nguoi choi tan cong
+        //}
 
     }
 }

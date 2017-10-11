@@ -4,18 +4,20 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class PlayerMotorScript : MonoBehaviour {
+public class PlayerMotorScript : MonoBehaviour
+{
 
     Transform target;
-    NavMeshAgent agent; 
-	void Start () {         
+    public NavMeshAgent agent;
+    void Start()
+    {
         agent = GetComponent<NavMeshAgent>();
-	} 
+    }
     private void Update()
     {
-        if (target!=null)
-        {           
-            agent.SetDestination(target.position);            
+        if (target != null)
+        {
+            agent.SetDestination(target.position);
             FaceTarget();
         }
     }
@@ -29,15 +31,15 @@ public class PlayerMotorScript : MonoBehaviour {
     //theo sau 1 vat the
     public void FollowTarget(Intertactable newTarger)
     {
-        agent.stoppingDistance = newTarger.radius *.5f;
+        agent.stoppingDistance = newTarger.radius * 1f;
         agent.updateRotation = false;
-        target = newTarger.interactableTranform; 
+        target = newTarger.interactableTranform;
     }
 
     public void StopFollowingTarget()
     {
-        agent.stoppingDistance = 0f;    
-        agent.updateRotation = true; 
+        // agent.stoppingDistance = 0f;
+        agent.updateRotation = true;
         target = null;
     }
 

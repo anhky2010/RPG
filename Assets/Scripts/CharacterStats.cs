@@ -14,6 +14,7 @@ public class CharacterStats : MonoBehaviour
     public Stat damage;
     public Stat armor;
     public Stat speed;
+    public Stat attackRange;
 
     public virtual void Awake()
     {
@@ -41,10 +42,6 @@ public class CharacterStats : MonoBehaviour
     public virtual void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
     }
 
     public virtual void Die()

@@ -38,11 +38,9 @@ public class Combat : MonoBehaviour
         attackCooldown -= Time.deltaTime;
     }
 
-    bool isAttackingPlayer = false;
 
     public void Attack(CharacterStats targetStats)
     {
-
         if (attackCooldown <= 0f)
         {
             if (isPlayer == false)
@@ -63,7 +61,6 @@ public class Combat : MonoBehaviour
                     playerAnimation.AttackAnimation();
                 }
             }
-
             StartCoroutine(DoDamage(targetStats, delay));
             attackCooldown = 1f / attackSpeed;
         }

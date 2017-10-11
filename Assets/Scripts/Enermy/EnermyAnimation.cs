@@ -36,7 +36,7 @@ public class EnermyAnimation : MonoBehaviour
     public void AttackAnimation()
     {
         animator.SetTrigger("EnermyAttack");
-        Debug.Log("Animation tan cong!");
+        // Debug.Log("Animation tan cong!");
     }
 
 

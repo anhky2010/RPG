@@ -84,22 +84,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AllStarCharacterLibrary\Models\Particles\RayShot.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\AbilityClasses.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\ASCLBasicController.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\BasicHitCheck.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CamTarget.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CarCamera.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CharacterControllerCollCheck.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CharacterDemoController.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\CharacterPhysicsController.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\Enemy.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\Hit.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\killParticle.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\Missile.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\MouseOrbit.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\RadialAngler.cs" />
-    <Compile Include="Assets\AllStarCharacterLibrary\Scripts\RootMotionOff.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -149,7 +133,6 @@
     <Compile Include="Assets\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Combat.cs" />
-    <Compile Include="Assets\Scripts\Enermy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermiesController.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermyAnimation.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermyScript.cs" />
