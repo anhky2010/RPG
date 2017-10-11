@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerInformation : MonoBehaviour
 {
 
-    public enum ValueType { MaxHealth, CurrentHealth, Damage, Armor };
+    public enum ValueType { MaxHealth, CurrentHealth, Damage, Range, Armor };
     public ValueType valueType;
     private int[] AllValue;
     // Use this for initialization
@@ -31,7 +31,8 @@ public class PlayerInformation : MonoBehaviour
         AllValue[0] = PlayerStats.instance_player.maxHealth;
         AllValue[1] = PlayerStats.instance_player.currentHealth;
         AllValue[2] = PlayerStats.instance_player.damage.GetFinalValue();
-        AllValue[3] = PlayerStats.instance_player.armor.GetFinalValue();
+        AllValue[3] = PlayerStats.instance_player.attackRange.GetFinalValue();
+        AllValue[4] = PlayerStats.instance_player.armor.GetFinalValue();
         int temp = (int)valueType;
         return AllValue[temp];
     }

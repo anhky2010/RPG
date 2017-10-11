@@ -4,13 +4,14 @@ using UnityEngine;
 public class PlayerControlScript : MonoBehaviour
 {
     public Intertactable focus;
-
     public LayerMask movementMask;
+
     Camera cam;
     PlayerMotorScript motor;
     PlayerManager playerManager;
-    CharacterStats selfStats;
+    PlayerStats playerStats;
     Combat combat;
+    float defaultRange;
     // Use this for initialization
     void Start()
     {
@@ -18,11 +19,15 @@ public class PlayerControlScript : MonoBehaviour
         motor = GetComponent<PlayerMotorScript>();
         playerManager = PlayerManager.instance; // nhan player vao
         combat = GetComponent<Combat>();
+        playerStats = GetComponent<PlayerStats>();
+
+        defaultRange = motor.agent.stoppingDistance;
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetPlayerGetHitPoint();
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return; //check xem co click len UI hay ko
@@ -34,13 +39,11 @@ public class PlayerControlScript : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100, movementMask))
             {
-                //move to a point
-                //  Debug.Log("We hit" + hit.collider.name + " " + hit.point);
                 motor.agent.stoppingDistance = 0f;
                 motor.MoveToPoint(hit.point);
-
-                //Stop forcusing anu objects
+                //Stop forcusing any objects
                 RemoveFocus();
+                hit_point = hit.point;
             }
         }
         if (Input.GetMouseButtonDown(0))
@@ -59,7 +62,16 @@ public class PlayerControlScript : MonoBehaviour
             }
         }
     }
+    Vector3 hit_point;
+    void SetPlayerGetHitPoint()
+    {
+        if (playerManager.player.transform.position.x == hit_point.x &&
+            playerManager.player.transform.position.z == hit_point.z)
+        {
+            motor.agent.stoppingDistance = defaultRange;
+        }
 
+    }
     void RemoveFocus()
     {
         if (focus != null)
@@ -87,21 +99,22 @@ public class PlayerControlScript : MonoBehaviour
     public void Attack(Intertactable target)
     {
         float distance = Vector3.Distance(target.interactableTranform.position, transform.position);
-        //  if (distance < lookRadius)
+        //set khoang cach dung nhan vat ung voi attack range 
+        motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
+        CharacterStats targetStats = target.GetComponent<EnermyStats>();
+        if (distance < playerStats.attackRange.GetFinalValue())
         {
-            // motor.agent.SetDestination(target.interactableTranform.position);
-            //  FaceTarget();
-            CharacterStats targetStats = target.GetComponent<EnermyStats>();
-            // if (distance < enemy.radius)
+            if (targetStats != null)
             {
-                if (targetStats != null)
-                {
-                    combat.Attack(targetStats); //tan cong nguoi choi
-                }
+                combat.Attack(targetStats);
+                motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
+                RemoveFocus();
             }
         }
-
-
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, playerStats.attackRange.GetFinalValue());
+    }
 }

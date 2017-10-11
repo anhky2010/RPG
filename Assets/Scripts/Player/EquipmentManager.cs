@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
-
-
     public static EquipmentManager instance; //singleton
     public void Awake()
     {
@@ -20,7 +18,7 @@ public class EquipmentManager : MonoBehaviour
     public OnEquipmentChanged onEquipmentChanged;
 
     Equipment[] currentEquipment;
-    public Equipment[] defaultEquipmentItems;
+    // public Equipment[] defaultEquipmentItems;
     public SkinnedMeshRenderer playerMesh;
     SkinnedMeshRenderer[] currentMeshes;
     private void Start()
@@ -28,18 +26,15 @@ public class EquipmentManager : MonoBehaviour
         int numslot = System.Enum.GetNames(typeof(EquipmentType)).Length;
         currentEquipment = new Equipment[numslot];
         currentMeshes = new SkinnedMeshRenderer[numslot];
-        EquipDefaultItems();
+        //EquipDefaultItems();
     }
 
     public void Equip(Equipment newEquipment)
     {
         int slotIndex = (int)newEquipment.equipmentType;
         Unequip(slotIndex);
-
         Equipment oldItem = Unequip(slotIndex);
-
-
-        SetEquipmentShapes(newEquipment, 100);
+        //SetEquipmentShapes(newEquipment, 100);
         currentEquipment[slotIndex] = newEquipment;
 
         if (onEquipmentChanged != null)
@@ -53,13 +48,14 @@ public class EquipmentManager : MonoBehaviour
         currentMeshes[slotIndex] = newMesh;
 
     }
-    void EquipDefaultItems()
-    {
-        foreach (var item in defaultEquipmentItems)
-        {
-            Equip(item);
-        }
-    }
+
+    //void EquipDefaultItems()
+    //{
+    //    foreach (var item in defaultEquipmentItems)
+    //    {
+    //        Equip(item);
+    //    }
+    //}
 
     public Equipment Unequip(int slotIndex)
     {
@@ -70,12 +66,11 @@ public class EquipmentManager : MonoBehaviour
             {
                 Destroy(currentMeshes[slotIndex].gameObject);
             }
-
             oldItem = currentEquipment[slotIndex];
             Inventory.instance.Add(oldItem);
             currentEquipment[slotIndex] = null;
 
-            SetEquipmentShapes(oldItem, 0);
+            // SetEquipmentShapes(oldItem, 0);
             if (onEquipmentChanged != null)
             {
                 onEquipmentChanged.Invoke(oldItem, null);
@@ -88,20 +83,20 @@ public class EquipmentManager : MonoBehaviour
 
 
     //scale body vs trang bi
-    public void SetEquipmentShapes(Equipment item, int index)
-    {
-        foreach (EquipmentMeshType equipmentMesh in item.equipmentMeshType)
-        {
-            playerMesh.SetBlendShapeWeight((int)equipmentMesh, index);
-        }
-    }
+    //public void SetEquipmentShapes(Equipment item, int index)
+    //{
+    //    foreach (EquipmentMeshType equipmentMesh in item.equipmentMeshType)
+    //    {
+    //        playerMesh.SetBlendShapeWeight((int)equipmentMesh, index);
+    //    }
+    //}
     public void UnequipAll()
     {
         for (int i = 0; i < currentEquipment.Length; i++)
         {
             Unequip(i);
         }
-        EquipDefaultItems();
+        //EquipDefaultItems();
     }
 
     public void Update()
@@ -109,7 +104,6 @@ public class EquipmentManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             UnequipAll();
-
         }
     }
 

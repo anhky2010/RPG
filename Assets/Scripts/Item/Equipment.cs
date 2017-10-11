@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName ="New Equipment", menuName ="Inventory/Equipment")]
-public class Equipment : Item {
+[CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/Equipment")]
+public class Equipment : Item
+{
 
     public EquipmentType equipmentType;
     public SkinnedMeshRenderer mesh;
@@ -15,8 +16,8 @@ public class Equipment : Item {
         EquipmentManager.instance.Equip(this);
         RemoveFromInventory();
     }
-  
+
 
 }
 public enum EquipmentType { Head, Chest, Legs, Weapon, Shield };
-public enum EquipmentMeshType { Head, Armor, Legs};
+public enum EquipmentMeshType { Head, Armor, Legs };
