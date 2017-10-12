@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     public int handWeapon;
     NavMeshAgent agent;
     public Animator animator;
+    public GameObject flashWord;
     // Use this for initialization
     void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerAnimation : MonoBehaviour
     public void AttackAnimation()
     {
         animator.SetTrigger("param_1HAttack");
+        Instantiate(flashWord, PlayerManager.instance.player.transform.position, PlayerManager.instance.player.transform.rotation);
     }
     void ChangeDefaultAnimation()
     {
