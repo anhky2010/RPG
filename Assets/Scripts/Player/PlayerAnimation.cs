@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.AI;
 public class PlayerAnimation : MonoBehaviour
 {
-    public int handWeapon;
+    int handWeapon;
     NavMeshAgent agent;
     public Animator animator;
-    public GameObject flashWord;
+    public List<GameObject> flashWord;
+
     // Use this for initialization
     void Start()
     {
@@ -23,10 +24,10 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat("param_speedRun", speed);
     }
 
-    public void AttackAnimation()
+    public void AttackAnimation(int _numberEffect)
     {
         animator.SetTrigger("param_1HAttack");
-        Instantiate(flashWord, PlayerManager.instance.player.transform.position, PlayerManager.instance.player.transform.rotation);
+        Instantiate(flashWord[_numberEffect], PlayerManager.instance.player.transform.position, PlayerManager.instance.player.transform.rotation);
     }
     void ChangeDefaultAnimation()
     {
@@ -39,6 +40,11 @@ public class PlayerAnimation : MonoBehaviour
         {
             handWeapon = 1;
             animator.SetInteger("param_Hand", handWeapon);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            AttackAnimation(0);
         }
 
     }

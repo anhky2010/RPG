@@ -21,7 +21,6 @@ public class Combat : MonoBehaviour
     }
     private void Start()
     {
-
         if (isPlayer)
         {
             playerAnimation = GetComponent<PlayerAnimation>();
@@ -30,7 +29,6 @@ public class Combat : MonoBehaviour
         {
             enermyAnimation = GetComponent<EnermyAnimation>();
         }
-
         characterStats = GetComponent<CharacterStats>();
     }
     private void Update()
@@ -58,7 +56,7 @@ public class Combat : MonoBehaviour
                 {
                     if (playerAnimation.animator.GetCurrentAnimatorStateInfo(0).IsName("1HAttack"))
                         return;
-                    playerAnimation.AttackAnimation();
+                    playerAnimation.AttackAnimation(0);
                 }
             }
             StartCoroutine(DoDamage(targetStats, delay));
