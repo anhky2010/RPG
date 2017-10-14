@@ -5,12 +5,15 @@ public class PlayerControlScript : MonoBehaviour
 {
     public Intertactable focus;
     public LayerMask movementMask;
-
+    public GameObject hitMark;
     Camera cam;
     PlayerMotorScript motor;
     PlayerManager playerManager;
     PlayerStats playerStats;
     Combat combat;
+
+    Intertactable intertactable = null;
+
     float defaultRange;
     // Use this for initialization
     void Start()
@@ -27,48 +30,61 @@ public class PlayerControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetPlayerGetHitPoint();
         if (EventSystem.current.IsPointerOverGameObject())
         {
             return; //check xem co click len UI hay ko
         }
-
+        SetHitMark();
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
         if (Input.GetMouseButtonDown(1))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            intertactable = null;
             if (Physics.Raycast(ray, out hit, 100, movementMask))
             {
+                hitMark.SetActive(true);
                 motor.agent.stoppingDistance = 0f;
                 motor.MoveToPoint(hit.point);
                 //Stop forcusing any objects
                 RemoveFocus();
+                hitMark.transform.position = hit.point + new Vector3(0, 0.1f, 0);
+                hitMark.transform.rotation = Quaternion.Euler(90, 0, 0);
                 hit_point = hit.point;
             }
         }
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            intertactable = null;
             if (Physics.Raycast(ray, out hit, 100))
             {
-                Intertactable intertactable = hit.collider.GetComponent<Intertactable>();
+                hitMark.SetActive(false);
+                intertactable = hit.collider.GetComponent<Intertactable>();
                 if (intertactable != null)
                 {
+                    if (intertactable.GetType().IsAssignableFrom(typeof(ItemPickup)))
+                    {
+                        motor.agent.stoppingDistance = 0f;
+                        SetFocus(intertactable);
+                        return;
+                    }
                     SetFocus(intertactable); //thang player nhin vao con moi
                     Attack(intertactable);
-                    Debug.Log("Player tan cong");
                 }
             }
         }
+        if (intertactable != null && intertactable.GetType().IsAssignableFrom(typeof(EnermyScript)) == true)
+        {
+            SetFocus(intertactable); //thang player nhin vao con moi
+            Attack(intertactable);
+        }
     }
     Vector3 hit_point;
-    void SetPlayerGetHitPoint()
+    void SetHitMark()
     {
         if (playerManager.player.transform.position.x == hit_point.x &&
             playerManager.player.transform.position.z == hit_point.z)
         {
-            motor.agent.stoppingDistance = defaultRange;
+            hitMark.SetActive(false);
         }
 
     }
@@ -108,7 +124,8 @@ public class PlayerControlScript : MonoBehaviour
             {
                 combat.Attack(targetStats);
                 motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
-                RemoveFocus();
+                //RemoveFocus();
+                Debug.Log("Player tan cong");
             }
         }
     }

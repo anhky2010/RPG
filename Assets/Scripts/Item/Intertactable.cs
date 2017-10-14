@@ -19,6 +19,7 @@ public class Intertactable : MonoBehaviour
                 hasInteracted = true;
             }
         }
+
     }
 
     public virtual void Interact()

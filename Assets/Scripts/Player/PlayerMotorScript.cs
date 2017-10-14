@@ -6,9 +6,11 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerMotorScript : MonoBehaviour
 {
-
+    public delegate void SetMoveDistance();
+    SetMoveDistance setMoveDistance;
     Transform target;
     public NavMeshAgent agent;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
