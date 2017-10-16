@@ -129,6 +129,20 @@
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\FT_ClickToSpawn.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\FT_PrefabCreate.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\FT_PrefabText.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\RandomSpawn.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\SpawnBeam.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\SpawnProjectile.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_DestroyParticleAtTime.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_DestroyParticleByDuration.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_GetPosition.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_HitProjectile.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_LineHitPoint.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_LineRender.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_LineSourcePoint.cs" />
+    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_LoopSwitch.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Combat.cs" />
     <Compile Include="Assets\Scripts\DestroyParticles.cs" />
@@ -152,9 +166,12 @@
     <Compile Include="Assets\Scripts\Player\PlayerInformation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMotorScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Player\Skill.cs" />
+    <Compile Include="Assets\Scripts\Player\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Player\UIbar.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />
+    <Compile Include="Assets\SkillDetailPopup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Environment\Particles\Shaders\PriorityParticleAdd.shader" />
@@ -201,6 +218,16 @@
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Beam.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DissolveSimple.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DoubleDistortion.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DoubleDistortionRamp02.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_HeatDistortion.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Light.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Simple.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_SimpleDoubleSide.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_UVscroll.shader" />
+    <None Include="Assets\FT_Infinity_lite\Shaders\FT_UVscrollFresnel.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

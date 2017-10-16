@@ -31,12 +31,12 @@ public class PlayerAnimation : MonoBehaviour
     }
     void ChangeDefaultAnimation()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             handWeapon = 2;
             animator.SetInteger("param_Hand", handWeapon);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             handWeapon = 1;
             animator.SetInteger("param_Hand", handWeapon);

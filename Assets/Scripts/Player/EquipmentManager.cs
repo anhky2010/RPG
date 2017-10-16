@@ -19,13 +19,13 @@ public class EquipmentManager : MonoBehaviour
 
     Equipment[] currentEquipment;
     // public Equipment[] defaultEquipmentItems;
-    public SkinnedMeshRenderer playerMesh;
-    SkinnedMeshRenderer[] currentMeshes;
+    //public SkinnedMeshRenderer playerMesh;
+    //SkinnedMeshRenderer[] currentMeshes;
     private void Start()
     {
         int numslot = System.Enum.GetNames(typeof(EquipmentType)).Length;
         currentEquipment = new Equipment[numslot];
-        currentMeshes = new SkinnedMeshRenderer[numslot];
+        //  currentMeshes = new SkinnedMeshRenderer[numslot];
         //EquipDefaultItems();
     }
 
@@ -41,11 +41,11 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(oldItem, newEquipment);
         }
-        SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newEquipment.mesh);
-        newMesh.transform.parent = playerMesh.transform;
-        newMesh.bones = playerMesh.bones;
-        newMesh.rootBone = playerMesh.rootBone;
-        currentMeshes[slotIndex] = newMesh;
+        //SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newEquipment.mesh);
+        //newMesh.transform.parent = playerMesh.transform;
+        //newMesh.bones = playerMesh.bones;
+        //newMesh.rootBone = playerMesh.rootBone;
+        //currentMeshes[slotIndex] = newMesh;
 
     }
 
@@ -62,10 +62,10 @@ public class EquipmentManager : MonoBehaviour
         Equipment oldItem = null;
         if (currentEquipment[slotIndex] != null)
         {
-            if (currentMeshes != null)
-            {
-                Destroy(currentMeshes[slotIndex].gameObject);
-            }
+            //if (currentMeshes != null)
+            //{
+            //    Destroy(currentMeshes[slotIndex].gameObject);
+            //}
             oldItem = currentEquipment[slotIndex];
             Inventory.instance.Add(oldItem);
             currentEquipment[slotIndex] = null;

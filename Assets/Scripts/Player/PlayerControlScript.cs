@@ -11,9 +11,9 @@ public class PlayerControlScript : MonoBehaviour
     PlayerManager playerManager;
     PlayerStats playerStats;
     Combat combat;
-
+    SkillManager skillManager;
     Intertactable intertactable = null;
-
+    float lookSize = 0f;
     float defaultRange;
     // Use this for initialization
     void Start()
@@ -23,8 +23,9 @@ public class PlayerControlScript : MonoBehaviour
         playerManager = PlayerManager.instance; // nhan player vao
         combat = GetComponent<Combat>();
         playerStats = GetComponent<PlayerStats>();
-
+        skillManager = SkillManager.instance;
         defaultRange = motor.agent.stoppingDistance;
+        lookSize = playerStats.attackRange.GetFinalValue();
     }
 
     // Update is called once per frame
@@ -40,36 +41,51 @@ public class PlayerControlScript : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             intertactable = null;
-            if (Physics.Raycast(ray, out hit, 100, movementMask))
-            {
-                hitMark.SetActive(true);
-                motor.agent.stoppingDistance = 0f;
-                motor.MoveToPoint(hit.point);
-                //Stop forcusing any objects
-                RemoveFocus();
-                hitMark.transform.position = hit.point + new Vector3(0, 0.1f, 0);
-                hitMark.transform.rotation = Quaternion.Euler(90, 0, 0);
-                hit_point = hit.point;
-            }
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            intertactable = null;
             if (Physics.Raycast(ray, out hit, 100))
             {
-                hitMark.SetActive(false);
                 intertactable = hit.collider.GetComponent<Intertactable>();
                 if (intertactable != null)
                 {
+                    motor.agent.speed = PlayerStats.instance_player.speed.GetFinalValue();
                     if (intertactable.GetType().IsAssignableFrom(typeof(ItemPickup)))
                     {
                         motor.agent.stoppingDistance = 0f;
                         SetFocus(intertactable);
+                        motor.FollowTarget(intertactable);
                         return;
                     }
-                    SetFocus(intertactable); //thang player nhin vao con moi
-                    Attack(intertactable);
+                    else if (intertactable.GetType().IsAssignableFrom(typeof(EnermyScript)) == true)
+                    {
+                        SetFocus(intertactable);
+                        motor.FollowTarget(intertactable);
+                        Attack(intertactable);
+                    }
                 }
+                if (intertactable == null)
+                {
+                    RemoveFocus();
+
+                    motor.agent.stoppingDistance = 0f;
+                    motor.MoveToPoint(hit.point);
+
+                    hitMark.SetActive(true);
+                    hitMark.transform.position = hit.point + new Vector3(0, 0.1f, 0);
+                    hitMark.transform.rotation = Quaternion.Euler(90, 0, 0);
+                    hit_point = hit.point;
+                }
+            }
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                intertactable = hit.collider.GetComponent<Intertactable>();
+                if (intertactable != null)
+                {
+                    hitMark.SetActive(false);
+                }
+
+
             }
         }
         if (intertactable != null && intertactable.GetType().IsAssignableFrom(typeof(EnermyScript)) == true)
@@ -77,12 +93,24 @@ public class PlayerControlScript : MonoBehaviour
             SetFocus(intertactable); //thang player nhin vao con moi
             Attack(intertactable);
         }
+        if (intertactable != null)
+        {
+            UseSkill(intertactable.transform.position);
+            motor.LookTarget(intertactable);
+        }
+
+
+
     }
     Vector3 hit_point;
     void SetHitMark()
     {
         if (playerManager.player.transform.position.x == hit_point.x &&
             playerManager.player.transform.position.z == hit_point.z)
+        {
+            hitMark.SetActive(false);
+        }
+        if (intertactable != null)
         {
             hitMark.SetActive(false);
         }
@@ -106,11 +134,11 @@ public class PlayerControlScript : MonoBehaviour
             {
                 focus.OnDefocused();// defocus thang cu~
             }
-            focus = newFocus; //lay thang moi vao
-            motor.FollowTarget(newFocus);//di theo con moi            
+            focus = newFocus; //lay thang moi vao  
         }
         newFocus.onFocused(transform);// con moi thay thang player
     }
+
 
     public void Attack(Intertactable target)
     {
@@ -130,8 +158,14 @@ public class PlayerControlScript : MonoBehaviour
         }
     }
 
+    public void UseSkill(Vector3 _pos)
+    {
+        Vector3 offset = new Vector3(0, 0, 0);
+        skillManager.CastSkill(_pos + offset);
+    }
+
     void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(this.transform.position, playerStats.attackRange.GetFinalValue());
+        Gizmos.DrawWireSphere(this.transform.position, lookSize);
     }
 }

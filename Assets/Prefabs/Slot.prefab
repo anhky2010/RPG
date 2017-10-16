@@ -277,7 +277,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 114704159624608726}
-  button: {fileID: 114363740212692802}
   removeButton: {fileID: 114363740212692802}
 --- !u!222 &222426522314215174
 CanvasRenderer:
