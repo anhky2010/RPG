@@ -1,13 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SkillDetailPopup : MonoBehaviour
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+public class SkillDetailPopup : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] GameObject popUpPanel;
 
-    public void OnPointerEnter(UnityEngine.EventSystems.PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse enter");
-
+        popUpPanel.SetActive(true);
+        popUpPanel.transform.position = this.transform.position + new Vector3(50, 150, 0);
     }
+
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        popUpPanel.SetActive(false);
+    }
+
+
+
+
 }
+

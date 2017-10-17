@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8500fd55ef067e14b85469ea91b92482, type: 3}
+  m_Name: ChargeFinish_Fire
+  m_EditorClassIdentifier: 
+  skill_Object: {fileID: 1000014127210068, guid: 5d259f0ba5af5074ea17b538b9112dbc,
+    type: 2}
+  skill_name: ChargeFinish_Fire
+  icon: {fileID: 21300042, guid: cbf28245725f9bf4e81523289aa53dc3, type: 3}
+  skill_Range: 5
+  damage: 0

@@ -7,7 +7,7 @@ public class Skill : ScriptableObject
 {
     public GameObject skill_Object;
     public string skill_name = "None";
-    public Sprite Icon;
+    public Sprite icon;
     public int skill_Range = 1;
     public int damage = 0;
 

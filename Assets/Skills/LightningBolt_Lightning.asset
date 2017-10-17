@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8500fd55ef067e14b85469ea91b92482, type: 3}
-  m_Name: Skill_1
+  m_Name: LightningBolt_Lightning
   m_EditorClassIdentifier: 
-  skill_Object: {fileID: 1000014127210068, guid: 5d259f0ba5af5074ea17b538b9112dbc,
+  skill_Object: {fileID: 1000012194824256, guid: 714b866976846d14d994261942e71d83,
     type: 2}
-  skill_name: 1
-  Icon: {fileID: 21300000, guid: 5a03703dfa9a69643a2cdcf91a21c59c, type: 3}
-  skill_Range: 5
+  skill_name: LightningBolt_Lightning
+  icon: {fileID: 21300004, guid: cbf28245725f9bf4e81523289aa53dc3, type: 3}
+  skill_Range: 1
   damage: 0

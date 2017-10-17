@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8500fd55ef067e14b85469ea91b92482, type: 3}
+  m_Name: FireBallsBuff
+  m_EditorClassIdentifier: 
+  skill_Object: {fileID: 1666753126242074, guid: 0c8efd65e50d36f459e554065c6a28fd,
+    type: 2}
+  skill_name: FireBallsBuff
+  icon: {fileID: 21300010, guid: cbf28245725f9bf4e81523289aa53dc3, type: 3}
+  skill_Range: 1
+  damage: 0

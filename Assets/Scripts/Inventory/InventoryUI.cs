@@ -4,13 +4,11 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
 
-
-
     public Transform itemsParent;
     public GameObject inventoryUI;
     public GameObject InformationUI;
 
-    public GameObject SkillBoardManager;
+
     Inventory inventory;
     InventorySlot[] slot;
 
@@ -18,13 +16,9 @@ public class InventoryUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         inventory = Inventory.instance;
         inventory.onItemChangeCallBack += UpdateUI;
         slot = itemsParent.GetComponentsInChildren<InventorySlot>();
-
-
-
     }
 
     // Update is called once per frame
@@ -34,14 +28,13 @@ public class InventoryUI : MonoBehaviour
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
             InformationUI.SetActive(!InformationUI.activeSelf);
-            SkillBoardManager.SetActive(!SkillBoardManager.activeSelf);
         }
 
         if (isInitial == false)
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
             InformationUI.SetActive(!InformationUI.activeSelf);
-            SkillBoardManager.SetActive(!SkillBoardManager.activeSelf);
+
             isInitial = true;
         }
     }
@@ -54,8 +47,6 @@ public class InventoryUI : MonoBehaviour
                 slot[i].AddItem(inventory.listItem[i]);
             }
             else slot[i].RemoveSlot();
-
         }
-
     }
 }

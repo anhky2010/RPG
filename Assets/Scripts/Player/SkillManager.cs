@@ -5,7 +5,8 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
 
-    [SerializeField] List<Skill> ListSkill;
+    public List<Skill> ListSkill;
+    public List<Skill> ListUseSkill;
     [SerializeField] GameObject SkillSpawnStorage;
     public static SkillManager instance;
     private void Awake()
@@ -23,24 +24,40 @@ public class SkillManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            GameObject temp = Instantiate(ListSkill[0].skill_Object, _pos, Quaternion.identity);
+            GameObject temp = Instantiate(ListUseSkill[0].skill_Object, _pos, Quaternion.identity);
             temp.transform.parent = SkillSpawnStorage.transform;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            GameObject temp = Instantiate(ListSkill[1].skill_Object, _pos, Quaternion.identity);
+            GameObject temp = Instantiate(ListUseSkill[1].skill_Object, _pos, Quaternion.identity);
             temp.transform.parent = SkillSpawnStorage.transform;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            GameObject temp = Instantiate(ListSkill[2].skill_Object, _pos, Quaternion.identity);
+            GameObject temp = Instantiate(ListUseSkill[2].skill_Object, _pos, Quaternion.identity);
             temp.transform.parent = SkillSpawnStorage.transform;
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            GameObject temp = Instantiate(ListSkill[3].skill_Object, _pos, Quaternion.identity);
+            GameObject temp = Instantiate(ListUseSkill[3].skill_Object, _pos, Quaternion.identity);
             temp.transform.parent = SkillSpawnStorage.transform;
         }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            GameObject temp = Instantiate(ListUseSkill[4].skill_Object, _pos, Quaternion.identity);
+            temp.transform.parent = SkillSpawnStorage.transform;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            GameObject temp = Instantiate(ListUseSkill[5].skill_Object, _pos, Quaternion.identity);
+            temp.transform.parent = SkillSpawnStorage.transform;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            GameObject temp = Instantiate(ListUseSkill[6].skill_Object, _pos, Quaternion.identity);
+            temp.transform.parent = SkillSpawnStorage.transform;
+        }
+
     }
 
 
