@@ -2,29 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public static GameObject itemBeingDragged;
-    Vector3 startPosition;
+    public static GameObject tempItemBeingDragged;
+    public Vector3 startPosition;
     Transform startParent;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        itemBeingDragged = gameObject;
+
         startPosition = transform.position;
         startParent = transform.parent;
+
+        tempItemBeingDragged = Instantiate(gameObject, transform.position, transform.rotation);
+        tempItemBeingDragged.transform.parent = startParent;
+        itemBeingDragged = tempItemBeingDragged;
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
+
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        tempItemBeingDragged.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         itemBeingDragged = null;
-
-        if (transform.parent != startParent)
+        // Destroy(tempItemBeingDragged);
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+        //if (transform.parent != startParent)
         {
             transform.position = startPosition;
         }

@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\DragHandler.cs" />
+    <Compile Include="Assets\DragStorage.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -175,7 +176,6 @@
     <Compile Include="Assets\SkillDetailPopup.cs" />
     <Compile Include="Assets\SkillManagerUI.cs" />
     <Compile Include="Assets\SkillSlot.cs" />
-    <Compile Include="Assets\test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Environment\Particles\Shaders\PriorityParticleAdd.shader" />

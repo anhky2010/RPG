@@ -1,24 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class SkillManagerUI : MonoBehaviour
 {
-
+    public static SkillManagerUI instance;
     public Transform itemsParent;
     public Transform useSlotParent;
     public GameObject SkillBoardManager;
     public GameObject PopUpDetail;
-    Inventory inventory;
+
+    [SerializeField] SkillSlot emptySkillSlot;
     SkillSlot[] slot;
     SkillSlot[] useableSlot;
     bool isInitial = false;
+
     // Use this for initialization
+    void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
+    }
     void Start()
     {
         slot = itemsParent.GetComponentsInChildren<SkillSlot>();
         useableSlot = useSlotParent.GetComponentsInChildren<SkillSlot>();
-        UpdateUI();
+        UpdateSkillBoardManager();
+        useableSlot = new SkillSlot[7];
+        UpdateSkillList();
+
+
     }
 
     // Update is called once per frame
@@ -29,15 +43,16 @@ public class SkillManagerUI : MonoBehaviour
             SkillBoardManager.SetActive(!SkillBoardManager.activeSelf);
             PopUpDetail.SetActive(false);
         }
-
         if (isInitial == false)
         {
             SkillBoardManager.SetActive(!SkillBoardManager.activeSelf);
             PopUpDetail.SetActive(false);
             isInitial = true;
         }
+
     }
-    void UpdateUI()
+
+    void UpdateSkillBoardManager()
     {
         for (int i = 0; i < slot.Length; i++)
         {
@@ -48,14 +63,23 @@ public class SkillManagerUI : MonoBehaviour
             else slot[i].RemoveSlot();
         }
 
-        for (int i = 0; i < useableSlot.Length; i++)
+    }
+    public void UpdateSkillList()
+    {
+        var childrenCount = useSlotParent.childCount;
+
+        for (int i = 0; i < childrenCount; i++)
         {
-            if (i < SkillManager.instance.ListUseSkill.Count)
+            if (useSlotParent.GetChild(i).GetComponentInChildren<SkillSlot>() != emptySkillSlot)
             {
-                useableSlot[i].AddItem(SkillManager.instance.ListUseSkill[i]);
+                useableSlot[i] = useSlotParent.GetChild(i).GetComponentInChildren<SkillSlot>();
             }
-            else useableSlot[i].RemoveSlot();
+            if (useSlotParent.GetChild(i).GetComponentInChildren<SkillSlot>() == null)
+            {
+                useableSlot[i] = emptySkillSlot;
+            }
         }
+        SkillManager.instance.AddSkillToList(useableSlot);
     }
 
 }

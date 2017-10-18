@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SkillSlot : MonoBehaviour
 {
-    Skill skill;
+    public Skill skill;
     public Image icon;
 
 
