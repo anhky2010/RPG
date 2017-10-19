@@ -8,14 +8,21 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public static GameObject tempItemBeingDragged;
     public Vector3 startPosition;
     Transform startParent;
+    public bool isRoot = true;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
 
         startPosition = transform.position;
         startParent = transform.parent;
-
-        tempItemBeingDragged = Instantiate(gameObject, transform.position, transform.rotation);
+        if (isRoot)
+        {
+            tempItemBeingDragged = Instantiate(gameObject, transform.position, transform.rotation);
+        }
+        else
+        {
+            tempItemBeingDragged = this.gameObject;
+        }
         tempItemBeingDragged.transform.parent = startParent;
         itemBeingDragged = tempItemBeingDragged;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -30,7 +37,12 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnEndDrag(PointerEventData eventData)
     {
         itemBeingDragged = null;
-        // Destroy(tempItemBeingDragged);
+
+
+        if (isRoot)
+        {
+            Destroy(tempItemBeingDragged);
+        }
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         //if (transform.parent != startParent)
         {
