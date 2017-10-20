@@ -6,7 +6,7 @@ public class SkillManager : MonoBehaviour
 {
 
     public List<Skill> ListSkill;
-    public Skill[] ListSpawnSkill;
+    public Skill[] ListSpawnSkill = new Skill[7];
 
     [SerializeField] Skill emptySkill;
     [SerializeField] GameObject SkillSpawnStorage;
@@ -23,7 +23,7 @@ public class SkillManager : MonoBehaviour
 
     void Start()
     {
-        ListSpawnSkill = new Skill[7];
+
     }
     public void CastSkill(Vector3 _pos)
     {
@@ -67,13 +67,18 @@ public class SkillManager : MonoBehaviour
 
     public void AddSkillToList(SkillSlot[] _skillSlot)
     {
+
         for (int i = 0; i < _skillSlot.Length; i++)
         {
             if (_skillSlot[i] != emptySkill)
             {
                 ListSpawnSkill[i] = _skillSlot[i].skill;
             }
-            else ListSpawnSkill[i] = emptySkill;
+            if (_skillSlot[i] == null)
+            {
+                ListSpawnSkill[i] = emptySkill;
+            }
+
 
         }
 

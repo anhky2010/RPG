@@ -823,11 +823,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490841f4ec2706e4ebea3f6ee4604395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsParent: {fileID: 30328129}
-  useSlotParent: {fileID: 741271823}
+  itemsParent: {fileID: 30328128}
+  useSlotParent: {fileID: 741271822}
   SkillBoardManager: {fileID: 600005324}
   PopUpDetail: {fileID: 1581910535}
-  emptySkillSlot: {fileID: 114936115829302964, guid: e4b50c7b4fa21f449a80d965128111c3,
+  emptySkillSlot: {fileID: 114182231780841972, guid: fab6962ab01fcba4095c430f62de820f,
     type: 2}
 --- !u!1 &76062003
 GameObject:
@@ -7509,7 +7509,6 @@ GameObject:
   - component: {fileID: 741271826}
   - component: {fileID: 741271825}
   - component: {fileID: 741271824}
-  - component: {fileID: 741271827}
   m_Layer: 5
   m_Name: SkillBoard
   m_TagString: Untagged
@@ -7602,17 +7601,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 741271822}
---- !u!114 &741271827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 741271822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7776ef9411eba545982ea02d0b65f2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &756349712
 GameObject:
   m_ObjectHideFlags: 0

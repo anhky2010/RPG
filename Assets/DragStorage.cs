@@ -17,21 +17,20 @@ public class DragStorage : MonoBehaviour, IDropHandler
         }
     }
 
+
     public void OnDrop(PointerEventData eventData)
     {
         if (item == null)
         {
-            GameObject temp = Instantiate(DragHandler.tempItemBeingDragged,
-                                          DragHandler.tempItemBeingDragged.transform.position,
-                                          DragHandler.tempItemBeingDragged.transform.rotation);
-            temp.transform.SetParent(transform);
-
-            temp.transform.localScale = new Vector3(1, 1, 1);
-            temp.GetComponent<DragHandler>().isRoot = false;
-            temp.GetComponent<CanvasGroup>().blocksRaycasts = true;
-            temp.name = DragHandler.tempItemBeingDragged.name;
-            Destroy(DragHandler.tempItemBeingDragged);
-            SkillManagerUI.instance.UpdateSkillList();
+            DragHandler.itemBeingDragged.transform.SetParent(transform);
+            DragHandler.itemBeingDragged.GetComponent<DragHandler>().isBottom = true;
+            DragHandler.itemBeingDragged.name = DragHandler.itemBeingDragged.GetComponent<SkillSlot>().skill.skill_name;
+            //Destroy(DragHandler.itemBeingDragged.gameObject);
         }
+
+        SkillManagerUI.instance.UpdateSkillList();
+
     }
+
+
 }

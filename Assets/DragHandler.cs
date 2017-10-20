@@ -5,48 +5,51 @@ using UnityEngine.EventSystems;
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public static GameObject itemBeingDragged;
-    public static GameObject tempItemBeingDragged;
     public Vector3 startPosition;
     Transform startParent;
-    public bool isRoot = true;
+    public bool isBottom = false;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-
         startPosition = transform.position;
         startParent = transform.parent;
-        if (isRoot)
-        {
-            tempItemBeingDragged = Instantiate(gameObject, transform.position, transform.rotation);
-        }
-        else
-        {
-            tempItemBeingDragged = this.gameObject;
-        }
-        tempItemBeingDragged.transform.parent = startParent;
-        itemBeingDragged = tempItemBeingDragged;
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
 
+        itemBeingDragged = Instantiate(gameObject, transform.position, transform.rotation);
+        itemBeingDragged.transform.parent = startParent;
+        itemBeingDragged.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        tempItemBeingDragged.transform.position = Input.mousePosition;
+        itemBeingDragged.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        itemBeingDragged.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        itemBeingDragged.transform.localScale = Vector3.one;
+
+        if (itemBeingDragged.transform.parent == startParent && isBottom == false)
+        {
+            Destroy(itemBeingDragged.gameObject);
+        }
+
+        if (isBottom == true)
+        {
+            if (itemBeingDragged.transform.parent == startParent)
+            {
+                Destroy(itemBeingDragged.gameObject);
+
+                Destroy(gameObject);
+            }
+            if (itemBeingDragged.transform.parent != startParent)
+            {
+                Destroy(gameObject);
+            }
+
+        }
         itemBeingDragged = null;
-
-
-        if (isRoot)
-        {
-            Destroy(tempItemBeingDragged);
-        }
-        GetComponent<CanvasGroup>().blocksRaycasts = true;
-        //if (transform.parent != startParent)
-        {
-            transform.position = startPosition;
-        }
     }
+
+
 }

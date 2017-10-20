@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8500fd55ef067e14b85469ea91b92482, type: 3}
   m_Name: emptySkill
   m_EditorClassIdentifier: 
-  skill_Object: {fileID: 0}
+  skill_Object: {fileID: 1365594213791060, guid: 1d63cad456ef6b141ba348e7b103a483,
+    type: 2}
   skill_name: emptySkill
   icon: {fileID: 0}
   skill_Range: 1
