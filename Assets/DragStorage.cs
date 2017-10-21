@@ -27,9 +27,7 @@ public class DragStorage : MonoBehaviour, IDropHandler
             DragHandler.itemBeingDragged.name = DragHandler.itemBeingDragged.GetComponent<SkillSlot>().skill.skill_name;
             //Destroy(DragHandler.itemBeingDragged.gameObject);
         }
-
         SkillManagerUI.instance.UpdateSkillList();
-
     }
 
 

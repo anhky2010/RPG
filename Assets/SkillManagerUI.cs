@@ -25,14 +25,13 @@ public class SkillManagerUI : MonoBehaviour
         }
         instance = this;
     }
-    List<SkillSlot> list_B = new List<SkillSlot>();
+
     void Start()
     {
         slot = itemsParent.GetComponentsInChildren<SkillSlot>();
         UpdateSkillBoardManager();
         UpdateSkillList();
 
-        for (int i = 0; i < 7; i++) list_B.Add(emptySkillSlot);
     }
 
     // Update is called once per frame
@@ -90,7 +89,7 @@ public class SkillManagerUI : MonoBehaviour
         {
             if (useSlotParent.transform.GetChild(i).GetComponentInChildren<SkillSlot>() != null)
             {
-                LBeginSlot[i] = tempList[number];
+                LBeginSlot[i] = LGetSkillSlot[number];
                 number++;
             }
         }
@@ -99,27 +98,20 @@ public class SkillManagerUI : MonoBehaviour
 
     List<SkillSlot> ListNoDups(List<SkillSlot> _list)
     {
-        List<SkillSlot> list_A = _list;
 
-        int pos = 0;
-        int count = 0;
-        for (int i = 0; i < list_A.Count; i++)
+        for (int i = 0; i < _list.Count; i++)
         {
-            for (int j = 0; j < list_B.Count; j++)
+            for (int j = (_list.Count - 1); j > i; j--)
             {
-                if (list_B[j].gameObject.name == list_A[i].gameObject.name)
+                if (_list[i].skill.skill_name == _list[j].skill.skill_name)
                 {
-                    count++;
+                    _list.RemoveAt(j);
                 }
             }
-            if (count < 1)
-            {
-                list_B[pos] = list_A[i];
-                pos++;
-                count = 0;
-            }
         }
-        return list_B;
+
+        return _list;
+
 
     }
 

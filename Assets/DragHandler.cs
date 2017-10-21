@@ -39,7 +39,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             if (itemBeingDragged.transform.parent == startParent)
             {
                 Destroy(itemBeingDragged.gameObject);
-
                 Destroy(gameObject);
             }
             if (itemBeingDragged.transform.parent != startParent)
@@ -49,6 +48,14 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         }
         itemBeingDragged = null;
+
+
+    }
+
+    void OnDestroy()
+    {
+
+        SkillManagerUI.instance.UpdateSkillList();
     }
 
 
