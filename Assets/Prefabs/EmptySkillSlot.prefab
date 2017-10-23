@@ -185,7 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
-  isRoot: 1
   isBottom: 0
 --- !u!114 &114901266028760428
 MonoBehaviour:

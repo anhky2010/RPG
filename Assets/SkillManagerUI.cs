@@ -10,12 +10,11 @@ public class SkillManagerUI : MonoBehaviour
     public GameObject SkillBoardManager;
     public GameObject CountDownSkillBoard;
     public GameObject PopUpDetail;
-
+    double a = 1;
     [SerializeField] SkillSlot emptySkillSlot;
     SkillSlot[] slot;
     Text[] list_CDText;
     Image[] list_CDIcon;
-
 
     bool isInitial = false;
 
@@ -66,6 +65,7 @@ public class SkillManagerUI : MonoBehaviour
 
     void UpdateSkillBoardManager()
     {
+        var ss = GetComponentsInChildren<DragHandler>();
         for (int i = 0; i < slot.Length; i++)
         {
             if (i < SkillManager.instance.List_Skill.Count)
@@ -73,8 +73,13 @@ public class SkillManagerUI : MonoBehaviour
                 slot[i].AddItem(SkillManager.instance.List_Skill[i]);
             }
             else slot[i].RemoveSlot();
-        }
 
+            if (slot[i].skill == null)
+            {
+                Destroy(ss[i]);
+            }
+
+        }
     }
 
     public void UpdateSkillList()
@@ -117,18 +122,23 @@ public class SkillManagerUI : MonoBehaviour
     }
     private void CoolDownDisplay()
     {
+
         for (int i = 0; i < SkillManager.instance.List_SpawnSkill.Length; i++)
         {
-            if (SkillManager.instance.List_SpawnSkill[i].current_cooldown_Time < 0.1f)
+            a = SkillManager.instance.List_SpawnSkill[i].current_cooldown_Time
+                / SkillManager.instance.List_SpawnSkill[i].cooldown_Time;
+            a = System.Math.Round(a, 2);
+            list_CDIcon[i + 1].fillAmount = (float)a;
+
+            if (SkillManager.instance.List_SpawnSkill[i].current_cooldown_Time > 0)
             {
-                list_CDText[i].text = " ";
-                list_CDIcon[i].enabled = false;
+                list_CDText[i].text = SkillManager.instance.List_SpawnSkill[i].current_cooldown_Time.ToString();
+
             }
             else
             {
-                list_CDIcon[i].enabled = true;
-                list_CDText[i].text = SkillManager.instance.List_SpawnSkill[i].current_cooldown_Time.ToString();
-
+                list_CDText[i].text = " ";
+                // list_CDIcon[i].fillAmount = 0;
             }
         }
 

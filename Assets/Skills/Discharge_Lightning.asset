@@ -15,7 +15,7 @@ MonoBehaviour:
     type: 2}
   skill_name: Discharge_Lightning
   icon: {fileID: 21300038, guid: cbf28245725f9bf4e81523289aa53dc3, type: 3}
-  skill_Range: 3
+  skill_Range: 10
   damage: 0
   cooldown_Time: 3
-  current_cooldown_Time: -1.0124707
+  current_cooldown_Time: 0.1717422

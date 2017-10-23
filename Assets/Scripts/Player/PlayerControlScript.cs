@@ -95,7 +95,7 @@ public class PlayerControlScript : MonoBehaviour
         }
         if (intertactable != null)
         {
-            UseSkill(intertactable.transform.position);
+            SkillAttack(intertactable);
             motor.LookTarget(intertactable);
         }
 
@@ -157,11 +157,31 @@ public class PlayerControlScript : MonoBehaviour
             }
         }
     }
+    public void SkillAttack(Intertactable target)
+    {
+        float distance = Vector3.Distance(target.interactableTranform.position, transform.position);
+        //set khoang cach dung nhan vat ung voi attack range 
+        motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
+        CharacterStats targetStats = target.GetComponent<EnermyStats>();
 
-    public void UseSkill(Vector3 _pos)
+        if (targetStats != null)
+        {
+            UseSkill(target.interactableTranform.position, distance, targetStats);
+            motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
+            Debug.Log("Player dung skill ");
+        }
+
+    }
+
+    public void UseSkill(Vector3 _pos, float _dis, CharacterStats _targerStat)
     {
         Vector3 offset = new Vector3(0, 0, 0);
-        skillManager.CastSkill(_pos + offset);
+        if (skillManager.CastSkill(_pos + offset, _dis))
+        {
+            combat.SkillAttack(_targerStat, 0);
+        }
+
+
     }
 
     void OnDrawGizmosSelected()

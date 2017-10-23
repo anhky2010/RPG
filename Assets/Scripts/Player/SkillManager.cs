@@ -19,77 +19,50 @@ public class SkillManager : MonoBehaviour
         }
         instance = this;
     }
-
+    void Start()
+    {
+        foreach (var item in List_Skill)
+        {
+            item.current_cooldown_Time = 0;
+        }
+    }
     void Update()
     {
         for (int i = 0; i < List_SpawnSkill.Length; i++)
         {
-            if (List_SpawnSkill[i].current_cooldown_Time > -1)
+            if (List_SpawnSkill[i].current_cooldown_Time > 0)
             {
                 List_SpawnSkill[i].current_cooldown_Time -= Time.deltaTime;
             }
         }
+
     }
-    public void CastSkill(Vector3 _pos)
+    public bool CastSkill(Vector3 _pos, float _distance)
     {
         int _orderSkill = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1)) _orderSkill = 0;
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) _orderSkill = 1;
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) _orderSkill = 2;
+        else if (Input.GetKeyDown(KeyCode.Alpha4)) _orderSkill = 3;
+        else if (Input.GetKeyDown(KeyCode.Alpha5)) _orderSkill = 4;
+        else if (Input.GetKeyDown(KeyCode.Alpha6)) _orderSkill = 5;
+        else if (Input.GetKeyDown(KeyCode.Alpha7)) _orderSkill = 6;
+        else return false;
+        if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0)
         {
-            _orderSkill = 0;
-            if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0) return;
-            List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
-            GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
-            temp.transform.parent = Skill_SpawnStorage.transform;
+            Debug.Log("Skill dang cooldown!!");
+            return false;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (List_SpawnSkill[_orderSkill].skill_Range < _distance)
         {
-            _orderSkill = 1;
-            if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0) return;
-            List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
-            GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
-            temp.transform.parent = Skill_SpawnStorage.transform;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            _orderSkill = 2;
-            if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0) return;
-            List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
-            GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
-            temp.transform.parent = Skill_SpawnStorage.transform;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            _orderSkill = 3;
-            if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0) return;
-            List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
-            GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
-            temp.transform.parent = Skill_SpawnStorage.transform;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            _orderSkill = 4;
-            if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0) return;
-            List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
-            GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
-            temp.transform.parent = Skill_SpawnStorage.transform;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            _orderSkill = 5;
-            if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0) return;
-            List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
-            GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
-            temp.transform.parent = Skill_SpawnStorage.transform;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            _orderSkill = 6;
-            if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0) return;
-            List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
-            GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
-            temp.transform.parent = Skill_SpawnStorage.transform;
+            Debug.Log("Skill khong du tam danh!!");
+            return false;
         }
 
+        List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
+        GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
+        temp.transform.parent = Skill_SpawnStorage.transform;
+        return true;
     }
 
     public void AddSkillToList(SkillSlot[] _skillSlot)

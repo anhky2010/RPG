@@ -15,5 +15,7 @@ MonoBehaviour:
     type: 2}
   skill_name: LightningBolt_Lightning
   icon: {fileID: 21300004, guid: cbf28245725f9bf4e81523289aa53dc3, type: 3}
-  skill_Range: 1
+  skill_Range: 10
   damage: 0
+  cooldown_Time: 1
+  current_cooldown_Time: 0
