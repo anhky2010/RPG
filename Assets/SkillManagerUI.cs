@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 public class SkillManagerUI : MonoBehaviour
 {
     public static SkillManagerUI instance;
     public GameObject itemsParent;
-    public GameObject useSlotParent;
+    public GameObject SkillBoard;
     public GameObject SkillBoardManager;
+    public GameObject CountDownSkillBoard;
     public GameObject PopUpDetail;
 
     [SerializeField] SkillSlot emptySkillSlot;
     SkillSlot[] slot;
+    Text[] list_CDText;
+    Image[] list_CDIcon;
+
 
     bool isInitial = false;
 
@@ -31,6 +34,8 @@ public class SkillManagerUI : MonoBehaviour
         slot = itemsParent.GetComponentsInChildren<SkillSlot>();
         UpdateSkillBoardManager();
         UpdateSkillList();
+        list_CDText = CountDownSkillBoard.GetComponentsInChildren<Text>();
+        list_CDIcon = CountDownSkillBoard.GetComponentsInChildren<Image>();
 
     }
 
@@ -48,7 +53,6 @@ public class SkillManagerUI : MonoBehaviour
             PopUpDetail.SetActive(false);
             SkillBoardManager.SetActive(!SkillBoardManager.activeSelf);
 
-            // DragHandler.itemBeingDragged.GetComponent<CanvasGroup>().blocksRaycasts = true;
         }
         if (isInitial == false)
         {
@@ -56,6 +60,7 @@ public class SkillManagerUI : MonoBehaviour
             PopUpDetail.SetActive(false);
             isInitial = true;
         }
+        CoolDownDisplay();
 
     }
 
@@ -63,9 +68,9 @@ public class SkillManagerUI : MonoBehaviour
     {
         for (int i = 0; i < slot.Length; i++)
         {
-            if (i < SkillManager.instance.ListSkill.Count)
+            if (i < SkillManager.instance.List_Skill.Count)
             {
-                slot[i].AddItem(SkillManager.instance.ListSkill[i]);
+                slot[i].AddItem(SkillManager.instance.List_Skill[i]);
             }
             else slot[i].RemoveSlot();
         }
@@ -80,14 +85,14 @@ public class SkillManagerUI : MonoBehaviour
             LBeginSlot[i] = emptySkillSlot;
         }
 
-        SkillSlot[] LGetSkillSlot = useSlotParent.GetComponentsInChildren<SkillSlot>();
-        List<SkillSlot> tempList = LGetSkillSlot.ToList<SkillSlot>();
+        SkillSlot[] LGetSkillSlot = SkillBoard.GetComponentsInChildren<SkillSlot>();
+        //  List<SkillSlot> tempList = LGetSkillSlot.ToList<SkillSlot>();
 
-        tempList = ListNoDups(tempList);
+        //  tempList = ListNoDups(tempList);
         int number = 0;
         for (int i = 0; i < LBeginSlot.Length; i++)
         {
-            if (useSlotParent.transform.GetChild(i).GetComponentInChildren<SkillSlot>() != null)
+            if (SkillBoard.transform.GetChild(i).GetComponentInChildren<SkillSlot>() != null)
             {
                 LBeginSlot[i] = LGetSkillSlot[number];
                 number++;
@@ -98,7 +103,6 @@ public class SkillManagerUI : MonoBehaviour
 
     List<SkillSlot> ListNoDups(List<SkillSlot> _list)
     {
-
         for (int i = 0; i < _list.Count; i++)
         {
             for (int j = (_list.Count - 1); j > i; j--)
@@ -109,9 +113,24 @@ public class SkillManagerUI : MonoBehaviour
                 }
             }
         }
-
         return _list;
+    }
+    private void CoolDownDisplay()
+    {
+        for (int i = 0; i < SkillManager.instance.List_SpawnSkill.Length; i++)
+        {
+            if (SkillManager.instance.List_SpawnSkill[i].current_cooldown_Time < 0.1f)
+            {
+                list_CDText[i].text = " ";
+                list_CDIcon[i].enabled = false;
+            }
+            else
+            {
+                list_CDIcon[i].enabled = true;
+                list_CDText[i].text = SkillManager.instance.List_SpawnSkill[i].current_cooldown_Time.ToString();
 
+            }
+        }
 
     }
 

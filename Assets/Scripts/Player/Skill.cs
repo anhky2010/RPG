@@ -10,6 +10,7 @@ public class Skill : ScriptableObject
     public Sprite icon;
     public int skill_Range = 1;
     public int damage = 0;
-
+    public float cooldown_Time = 1;
+    public float current_cooldown_Time = 1;
 
 }
