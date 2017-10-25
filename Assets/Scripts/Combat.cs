@@ -63,9 +63,9 @@ public class Combat : MonoBehaviour
             attackCooldown = 1f / attackSpeed;
         }
     }
-    public void SkillAttack(CharacterStats _targetStats, float _delay)
+    public void SkillAttack(CharacterStats _targetStats, float _delay, int _dmg)
     {
-        _targetStats.TakeDamage(5);
+        _targetStats.TakeDamage(_dmg);
     }
     IEnumerator DoDamage(CharacterStats stats, float deleyTime)
     {

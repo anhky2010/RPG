@@ -84,8 +84,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DragHandler.cs" />
-    <Compile Include="Assets\DragStorage.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -131,23 +129,11 @@
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\FT_ClickToSpawn.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\FT_PrefabCreate.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\FT_PrefabText.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\RandomSpawn.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\SpawnBeam.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scenes\Data\Scripts\SpawnProjectile.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_DestroyParticleAtTime.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_DestroyParticleByDuration.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_GetPosition.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_HitProjectile.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_LineHitPoint.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_LineRender.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_LineSourcePoint.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Scripts\FT_LoopSwitch.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\Combat.cs" />
     <Compile Include="Assets\Scripts\DestroyParticles.cs" />
+    <Compile Include="Assets\Scripts\DragHandler.cs" />
+    <Compile Include="Assets\Scripts\DragStorage.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermiesController.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermyAnimation.cs" />
     <Compile Include="Assets\Scripts\Enermy\EnermyScript.cs" />
@@ -172,10 +158,25 @@
     <Compile Include="Assets\Scripts\Player\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Player\UIbar.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\SkillDetailPopup.cs" />
+    <Compile Include="Assets\Scripts\SkillManagerUI.cs" />
+    <Compile Include="Assets\Scripts\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />
-    <Compile Include="Assets\SkillDetailPopup.cs" />
-    <Compile Include="Assets\SkillManagerUI.cs" />
-    <Compile Include="Assets\SkillSlot.cs" />
+    <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\FT_ClickToSpawn.cs" />
+    <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\FT_PrefabCreate.cs" />
+    <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\FT_PrefabText.cs" />
+    <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\RandomSpawn.cs" />
+    <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\SpawnBeam.cs" />
+    <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\SpawnProjectile.cs" />
+    <Compile Include="Assets\Skill Effect\Scripts\FT_DestroyParticleAtTime.cs" />
+    <Compile Include="Assets\Skill Effect\Scripts\FT_DestroyParticleByDuration.cs" />
+    <Compile Include="Assets\Skill Effect\Scripts\FT_GetPosition.cs" />
+    <Compile Include="Assets\Skill Effect\Scripts\FT_HitProjectile.cs" />
+    <Compile Include="Assets\Skill Effect\Scripts\FT_LineHitPoint.cs" />
+    <Compile Include="Assets\Skill Effect\Scripts\FT_LineRender.cs" />
+    <Compile Include="Assets\Skill Effect\Scripts\FT_LineSourcePoint.cs" />
+    <Compile Include="Assets\Skill Effect\Scripts\FT_LoopSwitch.cs" />
+    <Compile Include="Assets\SkillPopupInformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Environment\Particles\Shaders\PriorityParticleAdd.shader" />
@@ -222,16 +223,16 @@
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Beam.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DissolveSimple.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DoubleDistortion.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DoubleDistortionRamp02.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_HeatDistortion.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Light.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Simple.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_SimpleDoubleSide.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_UVscroll.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_UVscrollFresnel.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_Beam.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_DissolveSimple.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_DoubleDistortion.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_DoubleDistortionRamp02.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_HeatDistortion.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_Light.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_Simple.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_SimpleDoubleSide.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_UVscroll.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_UVscrollFresnel.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

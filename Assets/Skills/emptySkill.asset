@@ -16,6 +16,7 @@ MonoBehaviour:
   skill_name: emptySkill
   icon: {fileID: 0}
   skill_Range: 0
+  mana_Cost: 0
   damage: 0
   cooldown_Time: 0
   current_cooldown_Time: 0

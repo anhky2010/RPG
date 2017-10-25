@@ -10,6 +10,8 @@ public class CharacterStats : MonoBehaviour
 
     public int maxHealth = 1;
     public int currentHealth { get; private set; }
+    public int maxMana = 1;
+    public int currentMana { get; private set; }
 
     public Stat damage;
     public Stat armor;
@@ -20,7 +22,7 @@ public class CharacterStats : MonoBehaviour
     {
         instance = this;
         currentHealth = maxHealth;
-
+        currentMana = maxMana;
     }
 
     public void TakeDamage(int dmg)

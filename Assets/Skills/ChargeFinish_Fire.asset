@@ -14,8 +14,9 @@ MonoBehaviour:
   skill_Object: {fileID: 1000014127210068, guid: 5d259f0ba5af5074ea17b538b9112dbc,
     type: 2}
   skill_name: ChargeFinish_Fire
-  icon: {fileID: 21300042, guid: cbf28245725f9bf4e81523289aa53dc3, type: 3}
+  icon: {fileID: 21300000, guid: bfb2b547bc55e7f45a3f2c2d2a3ab029, type: 3}
   skill_Range: 10
-  damage: 0
+  mana_Cost: 1
+  damage: 20
   cooldown_Time: 5
-  current_cooldown_Time: 3.7798722
+  current_cooldown_Time: 0

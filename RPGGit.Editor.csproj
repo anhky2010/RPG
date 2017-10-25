@@ -165,7 +165,7 @@
     <Compile Include="Assets\Environment\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
-    <Compile Include="Assets\FT_Infinity_lite\Editor\ParticleToolBox.cs" />
+    <Compile Include="Assets\Skill Effect\Editor\ParticleToolBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Environment\Particles\Shaders\PriorityParticleAdd.shader" />
@@ -212,16 +212,16 @@
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Beam.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DissolveSimple.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DoubleDistortion.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_DoubleDistortionRamp02.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_HeatDistortion.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Light.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_Simple.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_SimpleDoubleSide.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_UVscroll.shader" />
-    <None Include="Assets\FT_Infinity_lite\Shaders\FT_UVscrollFresnel.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_Beam.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_DissolveSimple.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_DoubleDistortion.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_DoubleDistortionRamp02.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_HeatDistortion.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_Light.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_Simple.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_SimpleDoubleSide.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_UVscroll.shader" />
+    <None Include="Assets\Skill Effect\Shaders\FT_UVscrollFresnel.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

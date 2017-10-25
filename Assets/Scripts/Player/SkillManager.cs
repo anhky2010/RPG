@@ -37,7 +37,7 @@ public class SkillManager : MonoBehaviour
         }
 
     }
-    public bool CastSkill(Vector3 _pos, float _distance)
+    public bool CastSkill(Vector3 _pos, float _distance, ref int _dmg, ref int _skill_range)
     {
         int _orderSkill = 0;
         if (Input.GetKeyDown(KeyCode.Alpha1)) _orderSkill = 0;
@@ -62,6 +62,9 @@ public class SkillManager : MonoBehaviour
         List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
         GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
         temp.transform.parent = Skill_SpawnStorage.transform;
+
+        _dmg = List_SpawnSkill[_orderSkill].damage;
+        _skill_range = List_SpawnSkill[_orderSkill].skill_Range;
         return true;
     }
 
