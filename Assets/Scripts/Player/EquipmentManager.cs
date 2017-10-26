@@ -17,6 +17,8 @@ public class EquipmentManager : MonoBehaviour
     public delegate void OnEquipmentChanged(Equipment oldItem, Equipment newItem);
     public OnEquipmentChanged onEquipmentChanged;
 
+    [SerializeField] GameObject currentEquipmentParent;
+    InventorySlot[] currentEquipmentSlots;
     Equipment[] currentEquipment;
     // public Equipment[] defaultEquipmentItems;
     //public SkinnedMeshRenderer playerMesh;
@@ -25,6 +27,7 @@ public class EquipmentManager : MonoBehaviour
     {
         int numslot = System.Enum.GetNames(typeof(EquipmentType)).Length;
         currentEquipment = new Equipment[numslot];
+        currentEquipmentSlots = currentEquipmentParent.GetComponentsInChildren<InventorySlot>();
         //  currentMeshes = new SkinnedMeshRenderer[numslot];
         //EquipDefaultItems();
     }
@@ -41,6 +44,7 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(oldItem, newEquipment);
         }
+        ShowCurrentEquipments();
         //SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newEquipment.mesh);
         //newMesh.transform.parent = playerMesh.transform;
         //newMesh.bones = playerMesh.bones;
@@ -75,10 +79,11 @@ public class EquipmentManager : MonoBehaviour
             {
                 onEquipmentChanged.Invoke(oldItem, null);
             }
+            ShowCurrentEquipments();
             return oldItem;
         }
+        ShowCurrentEquipments();
         return null;
-
     }
 
 
@@ -96,10 +101,11 @@ public class EquipmentManager : MonoBehaviour
         {
             Unequip(i);
         }
+        ShowCurrentEquipments();
         //EquipDefaultItems();
     }
 
-    public void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -107,6 +113,19 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
+    private void ShowCurrentEquipments()
+    {
+
+        for (int i = 0; i < currentEquipment.Length; i++)
+        {
+            if (currentEquipment[i] != null)
+            {
+                currentEquipmentSlots[i].AddItem(currentEquipment[i]);
+            }
+            else currentEquipmentSlots[i].RemoveSlot();
+
+        }
+    }
 
 
 }

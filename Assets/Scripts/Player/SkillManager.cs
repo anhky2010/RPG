@@ -51,11 +51,13 @@ public class SkillManager : MonoBehaviour
         if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0)
         {
             Debug.Log("Skill dang cooldown!!");
+            ChatBoxManager.instance.EnqueueText("Ki nang dang troi thoi gian hoi!");
             return false;
         }
         if (List_SpawnSkill[_orderSkill].skill_Range < _distance)
         {
-            Debug.Log("Skill khong du tam danh!!");
+            Debug.Log("Ki nang khong du tam danh!!");
+            ChatBoxManager.instance.EnqueueText("Ki nang khong du tam danh!!");
             return false;
         }
 

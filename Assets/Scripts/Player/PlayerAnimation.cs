@@ -41,11 +41,5 @@ public class PlayerAnimation : MonoBehaviour
             handWeapon = 1;
             animator.SetInteger("param_Hand", handWeapon);
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            AttackAnimation(0);
-        }
-
     }
 }

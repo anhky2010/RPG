@@ -154,6 +154,7 @@ public class PlayerControlScript : MonoBehaviour
                 motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
                 //RemoveFocus();
                 Debug.Log("Player tan cong");
+
             }
         }
     }
@@ -165,7 +166,6 @@ public class PlayerControlScript : MonoBehaviour
         if (targetStats != null)
         {
             UseSkill(target.interactableTranform.position, distance, targetStats);
-
         }
 
     }
