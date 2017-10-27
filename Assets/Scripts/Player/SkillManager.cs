@@ -48,6 +48,12 @@ public class SkillManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha6)) _orderSkill = 5;
         else if (Input.GetKeyDown(KeyCode.Alpha7)) _orderSkill = 6;
         else return false;
+        if (List_SpawnSkill[_orderSkill].skill_name == emptySkill.skill_name)
+        {
+            Debug.Log("Chua cai dat ki nang cho phim nay!!");
+            ChatBoxManager.instance.EnqueueText("Chua cai dat ki nay cho phim nay!!");
+            return false;
+        }
         if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0)
         {
             Debug.Log("Skill dang cooldown!!");
@@ -60,6 +66,7 @@ public class SkillManager : MonoBehaviour
             ChatBoxManager.instance.EnqueueText("Ki nang khong du tam danh!!");
             return false;
         }
+
 
         List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
         GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
