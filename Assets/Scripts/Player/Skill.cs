@@ -14,4 +14,6 @@ public class Skill : ScriptableObject
     public float cooldown_Time = 1;
     public float current_cooldown_Time = 1;
 
+    public int animation_Type = 0;
+    public float delay_Appear = 0;
 }

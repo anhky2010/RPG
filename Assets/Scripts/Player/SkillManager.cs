@@ -48,33 +48,42 @@ public class SkillManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha6)) _orderSkill = 5;
         else if (Input.GetKeyDown(KeyCode.Alpha7)) _orderSkill = 6;
         else return false;
-        if (List_SpawnSkill[_orderSkill].skill_name == emptySkill.skill_name)
+        Skill skill_temp = List_SpawnSkill[_orderSkill];
+        if (skill_temp.skill_name == emptySkill.skill_name)
         {
             Debug.Log("Chua cai dat ki nang cho phim nay!!");
             ChatBoxManager.instance.EnqueueText("Chua cai dat ki nay cho phim nay!!");
             return false;
         }
-        if (List_SpawnSkill[_orderSkill].current_cooldown_Time > 0)
+        if (skill_temp.current_cooldown_Time > 0)
         {
             Debug.Log("Skill dang cooldown!!");
             ChatBoxManager.instance.EnqueueText("Ki nang dang troi thoi gian hoi!");
             return false;
         }
-        if (List_SpawnSkill[_orderSkill].skill_Range < _distance)
+        if (skill_temp.skill_Range < _distance)
         {
             Debug.Log("Ki nang khong du tam danh!!");
             ChatBoxManager.instance.EnqueueText("Ki nang khong du tam danh!!");
             return false;
         }
 
+        PlayerAnimation.instance.CastSpellAnimation(skill_temp.animation_Type);
+        StartCoroutine(CreateSkill(_orderSkill, _pos, skill_temp.delay_Appear));
 
-        List_SpawnSkill[_orderSkill].current_cooldown_Time = List_SpawnSkill[_orderSkill].cooldown_Time;
-        GameObject temp = Instantiate(List_SpawnSkill[_orderSkill].skill_Object, _pos, Quaternion.identity);
+
+        _dmg = skill_temp.damage;
+        _skill_range = skill_temp.skill_Range;
+        return true;
+    }
+
+    IEnumerator CreateSkill(int _order, Vector3 _pos, float _delayTime)
+    {
+        yield return new WaitForSeconds(_delayTime);
+        List_SpawnSkill[_order].current_cooldown_Time = List_SpawnSkill[_order].cooldown_Time;
+        GameObject temp = Instantiate(List_SpawnSkill[_order].skill_Object, _pos, Quaternion.identity);
         temp.transform.parent = Skill_SpawnStorage.transform;
 
-        _dmg = List_SpawnSkill[_orderSkill].damage;
-        _skill_range = List_SpawnSkill[_orderSkill].skill_Range;
-        return true;
     }
 
     public void AddSkillToList(SkillSlot[] _skillSlot)

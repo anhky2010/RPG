@@ -148,12 +148,13 @@ public class PlayerControlScript : MonoBehaviour
         CharacterStats targetStats = target.GetComponent<EnermyStats>();
         if (distance < playerStats.attackRange.GetFinalValue())
         {
-            if (targetStats != null)
+            if (targetStats != null && !PlayerAnimation.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("1HAttack"))
             {
+                PlayerAnimation.instance.AttackAnimation(0);
                 combat.Attack(targetStats);
                 motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
                 //RemoveFocus();
-                Debug.Log("Player tan cong");
+                // Debug.Log("Player tan cong");
 
             }
         }
@@ -177,7 +178,6 @@ public class PlayerControlScript : MonoBehaviour
         int _range = 0;
         if (skillManager.CastSkill(_pos + offset, _dis, ref _dmg, ref _range))
         {
-
             combat.SkillAttack(_targerStat, 0, _dmg);
             motor.agent.stoppingDistance = _range;
             Debug.Log("Player dung skill dmg " + _dmg);

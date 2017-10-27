@@ -7,7 +7,6 @@ public class Combat : MonoBehaviour
     public static Combat instance;
     CharacterStats characterStats;
     EnermyAnimation enermyAnimation;
-    PlayerAnimation playerAnimation;
     //public event System.Action OnAttack;
     public delegate void OnCombat();
     public OnCombat onCombat;
@@ -21,10 +20,7 @@ public class Combat : MonoBehaviour
     }
     private void Start()
     {
-        if (isPlayer)
-        {
-            playerAnimation = GetComponent<PlayerAnimation>();
-        }
+
         if (!isPlayer)
         {
             enermyAnimation = GetComponent<EnermyAnimation>();
@@ -50,15 +46,14 @@ public class Combat : MonoBehaviour
                     enermyAnimation.AttackAnimation();
                 }
             }
-            if (isPlayer == true)
-            {
-                if (playerAnimation != null)
-                {
-                    if (playerAnimation.animator.GetCurrentAnimatorStateInfo(0).IsName("1HAttack"))
-                        return;
-                    playerAnimation.AttackAnimation(0);
-                }
-            }
+            //if (isPlayer == true)
+            //{
+
+            //    if (PlayerAnimation.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("1HAttack"))
+            //        return;
+            //    PlayerAnimation.instance.AttackAnimation(0);
+
+            //}
             StartCoroutine(DoDamage(targetStats, delay));
             attackCooldown = 1f / attackSpeed;
         }
@@ -75,7 +70,6 @@ public class Combat : MonoBehaviour
             onCombat.Invoke();
         }
         stats.TakeDamage(characterStats.damage.GetFinalValue());
-
     }
 
 }

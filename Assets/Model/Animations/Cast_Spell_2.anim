@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: standing_1H_cast_spell_01
+  m_Name: Cast_Spell_2
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0

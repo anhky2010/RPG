@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 23164642118707654}
   m_Layer: 10
   m_Name: minimap
-  m_TagString: Untagged
+  m_TagString: minimap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -699,8 +699,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391650077936172}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5385303, y: -2.5030327, z: 1.6028147}
+  m_LocalRotation: {x: 0, y: 0.9434543, z: 0, w: 0.3315026}
+  m_LocalPosition: {x: 0, y: -2.5030327, z: 9.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4556140539583250}
@@ -708,7 +708,7 @@ Transform:
   - {fileID: 4123868060041632}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 141.28, z: 0}
 --- !u!4 &4644781713143496
 Transform:
   m_ObjectHideFlags: 1
@@ -844,6 +844,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -859,6 +860,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -917,7 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d0170958583a848a3dbc6f5326d825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 8
+  lookRadius: 5
 --- !u!114 &114383744654562778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -942,7 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db006954698b3334cb9cc05ff4834712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.95
+  radius: 1.5
   interactableTranform: {fileID: 4638206570280924}
 --- !u!114 &114904766100066556
 MonoBehaviour:
@@ -956,10 +958,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  maxMana: 1
   damage:
     baseValue: 15
   armor:
-    baseValue: 0
+    baseValue: 10
   speed:
     baseValue: 3
   attackRange:
@@ -1000,6 +1003,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1015,6 +1019,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1060,7 +1065,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1391650077936172}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1069,7 +1074,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

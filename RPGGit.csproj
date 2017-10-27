@@ -225,7 +225,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ChatBoxManager.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -272,6 +271,7 @@
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\ChatBoxManager.cs" />
     <Compile Include="Assets\Scripts\Combat.cs" />
     <Compile Include="Assets\Scripts\DestroyParticles.cs" />
     <Compile Include="Assets\Scripts\DragHandler.cs" />
@@ -302,6 +302,7 @@
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\SkillDetailPopup.cs" />
     <Compile Include="Assets\Scripts\SkillManagerUI.cs" />
+    <Compile Include="Assets\Scripts\SkillPopupInformation.cs" />
     <Compile Include="Assets\Scripts\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />
     <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\FT_ClickToSpawn.cs" />
@@ -318,7 +319,6 @@
     <Compile Include="Assets\Skill Effect\Scripts\FT_LineRender.cs" />
     <Compile Include="Assets\Skill Effect\Scripts\FT_LineSourcePoint.cs" />
     <Compile Include="Assets\Skill Effect\Scripts\FT_LoopSwitch.cs" />
-    <Compile Include="Assets\SkillPopupInformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Environment\Particles\Shaders\PriorityParticleAdd.shader" />

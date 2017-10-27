@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+  - minimap
+  - SeeInMap
   layers:
   - Default
   - TransparentFX
