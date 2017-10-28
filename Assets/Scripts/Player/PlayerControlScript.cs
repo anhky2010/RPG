@@ -35,6 +35,7 @@ public class PlayerControlScript : MonoBehaviour
         {
             return; //check xem co click len UI hay ko
         }
+
         SetHitMark();
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -61,20 +62,20 @@ public class PlayerControlScript : MonoBehaviour
                         SetFocus(intertactable);
                         motor.FollowTarget(intertactable);
                         Attack(intertactable);
+                        return;
                     }
                 }
-
                 //click phai de di den vi tri chuot
                 if (intertactable == null)
                 {
                     RemoveFocus();
                     motor.agent.stoppingDistance = 0f;
                     motor.MoveToPoint(hit.point);
-
                     hitMark.SetActive(true);
                     hitMark.transform.position = hit.point + new Vector3(0, 0.1f, 0);
                     hitMark.transform.rotation = Quaternion.Euler(90, 0, 0);
                     hit_point = hit.point;
+                    return;
                 }
             }
         }
@@ -89,19 +90,9 @@ public class PlayerControlScript : MonoBehaviour
                 }
             }
         }
-        if (intertactable != null && intertactable.GetType().IsAssignableFrom(typeof(EnermyScript)) == true)
-        {
-            SetFocus(intertactable); //thang player nhin vao con moi
-            Attack(intertactable);
-        }
-        if (intertactable != null)
-        {
-            SkillAttack(intertactable);
-            motor.LookTarget(intertactable);
-        }
 
-
-
+        SkillAttack(intertactable);
+        AutoAttack(intertactable);
     }
     Vector3 hit_point;
     void SetHitMark()
@@ -142,30 +133,35 @@ public class PlayerControlScript : MonoBehaviour
 
     public void Attack(Intertactable target)
     {
-        float distance = Vector3.Distance(target.interactableTranform.position, transform.position);
-        //set khoang cach dung nhan vat ung voi attack range 
-        motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
+        PlayerAnimation pAni = PlayerAnimation.instance;
         CharacterStats targetStats = target.GetComponent<EnermyStats>();
-        if (distance < playerStats.attackRange.GetFinalValue())
+        if (playerStats.curDCAtt > 0) return;
+
+        if (!pAni.animator.GetCurrentAnimatorStateInfo(0).IsName("1HAttack"))
         {
-            if (targetStats != null && !PlayerAnimation.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("1HAttack"))
+            if (targetStats == null) return;
+            float distance = Vector3.Distance(target.interactableTranform.position, transform.position);
+            //set khoang cach dung nhan vat ung voi attack range 
+            motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
+            if (distance < playerStats.attackRange.GetFinalValue())
             {
-                PlayerAnimation.instance.AttackAnimation(0);
+                pAni.AttackAnimation(playerStats.attackSpeed.GetFinalValue());
                 combat.Attack(targetStats);
                 motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
-                //RemoveFocus();
                 // Debug.Log("Player tan cong");
-
             }
         }
+
     }
     public void SkillAttack(Intertactable target)
     {
+        if (target == null) return;
         float distance = Vector3.Distance(target.interactableTranform.position, transform.position);
         //set khoang cach dung nhan vat ung voi attack range 
         CharacterStats targetStats = target.GetComponent<EnermyStats>();
         if (targetStats != null)
         {
+            motor.LookTarget(target);
             UseSkill(target.interactableTranform.position, distance, targetStats);
         }
 
@@ -176,18 +172,26 @@ public class PlayerControlScript : MonoBehaviour
         Vector3 offset = new Vector3(0, 0, 0);
         int _dmg = 0;
         int _range = 0;
-        if (skillManager.CastSkill(_pos + offset, _dis, ref _dmg, ref _range))
+        float _delay_Dmg = 0;
+        if (skillManager.CastSkill(_pos + offset, _dis, ref _dmg, ref _range, ref _delay_Dmg))
         {
-            combat.SkillAttack(_targerStat, 0, _dmg);
+            combat.SkillAttack(_targerStat, _delay_Dmg, _dmg);
             motor.agent.stoppingDistance = _range;
             Debug.Log("Player dung skill dmg " + _dmg);
         }
-
-
     }
-
+    public void AutoAttack(Intertactable target)
+    {
+        if (target != null && target.GetType().IsAssignableFrom(typeof(EnermyScript)))
+        {
+            SetFocus(target); //thang player nhin vao con moi
+            Attack(target);
+        }
+    }
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(this.transform.position, lookSize);
     }
+
+
 }

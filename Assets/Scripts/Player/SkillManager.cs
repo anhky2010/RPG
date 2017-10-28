@@ -37,7 +37,7 @@ public class SkillManager : MonoBehaviour
         }
 
     }
-    public bool CastSkill(Vector3 _pos, float _distance, ref int _dmg, ref int _skill_range)
+    public bool CastSkill(Vector3 _pos, float _distance, ref int _dmg, ref int _skill_range, ref float _dmg_delay)
     {
         int _orderSkill = 0;
         if (Input.GetKeyDown(KeyCode.Alpha1)) _orderSkill = 0;
@@ -69,19 +69,20 @@ public class SkillManager : MonoBehaviour
         }
 
         PlayerAnimation.instance.CastSpellAnimation(skill_temp.animation_Type);
+
         StartCoroutine(CreateSkill(_orderSkill, _pos, skill_temp.delay_Appear));
-
-
         _dmg = skill_temp.damage;
         _skill_range = skill_temp.skill_Range;
+        _dmg_delay = skill_temp.delay_Dmg;
         return true;
     }
 
     IEnumerator CreateSkill(int _order, Vector3 _pos, float _delayTime)
     {
         yield return new WaitForSeconds(_delayTime);
-        List_SpawnSkill[_order].current_cooldown_Time = List_SpawnSkill[_order].cooldown_Time;
-        GameObject temp = Instantiate(List_SpawnSkill[_order].skill_Object, _pos, Quaternion.identity);
+        Skill tempSkill = List_SpawnSkill[_order];
+        tempSkill.current_cooldown_Time = tempSkill.cooldown_Time;
+        GameObject temp = Instantiate(tempSkill.skill_Object, _pos, Quaternion.identity);
         temp.transform.parent = Skill_SpawnStorage.transform;
 
     }

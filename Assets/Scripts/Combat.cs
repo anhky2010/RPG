@@ -11,8 +11,6 @@ public class Combat : MonoBehaviour
     public delegate void OnCombat();
     public OnCombat onCombat;
     public float delay = .0f;
-    public float attackSpeed = 1f;
-    private float attackCooldown = 0;
     [SerializeField] bool isPlayer = false;
     void Awake()
     {
@@ -29,47 +27,46 @@ public class Combat : MonoBehaviour
     }
     private void Update()
     {
-        attackCooldown -= Time.deltaTime;
+        if (characterStats.curDCAtt > -1)
+        {
+            characterStats.curDCAtt -= Time.deltaTime;
+        }
     }
 
 
     public void Attack(CharacterStats targetStats)
     {
-        if (attackCooldown <= 0f)
+        if (characterStats.curDCAtt <= 0f)
         {
             if (isPlayer == false)
             {
                 if (enermyAnimation != null)
                 {
-                    if (enermyAnimation.animator.GetCurrentAnimatorStateInfo(0).IsName("UD_infantry_07_attack_A"))
-                        return;
+                    //if (enermyAnimation.animator.GetCurrentAnimatorStateInfo(0).IsName("UD_infantry_07_attack_A"))
+                    //    return;
                     enermyAnimation.AttackAnimation();
                 }
             }
-            //if (isPlayer == true)
-            //{
-
-            //    if (PlayerAnimation.instance.animator.GetCurrentAnimatorStateInfo(0).IsName("1HAttack"))
-            //        return;
-            //    PlayerAnimation.instance.AttackAnimation(0);
-
-            //}
-            StartCoroutine(DoDamage(targetStats, delay));
-            attackCooldown = 1f / attackSpeed;
+            int _dmg = characterStats.damage.GetFinalValue();
+            StartCoroutine(DoDamage(targetStats, delay, _dmg));
+            characterStats.curDCAtt = 1f / characterStats.attackSpeed.GetFinalValue(); ;
         }
     }
     public void SkillAttack(CharacterStats _targetStats, float _delay, int _dmg)
     {
-        _targetStats.TakeDamage(_dmg);
+        StartCoroutine(DoDamage(_targetStats, _delay, _dmg));
+
     }
-    IEnumerator DoDamage(CharacterStats stats, float deleyTime)
+    IEnumerator DoDamage(CharacterStats _stats, float _delayTime, int _dmg)
     {
-        yield return new WaitForSeconds(deleyTime);
+        yield return new WaitForSeconds(_delayTime);
         if (onCombat != null)
         {
             onCombat.Invoke();
         }
-        stats.TakeDamage(characterStats.damage.GetFinalValue());
+        _stats.TakeDamage(_dmg);
     }
+
+
 
 }

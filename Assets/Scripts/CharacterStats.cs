@@ -17,7 +17,8 @@ public class CharacterStats : MonoBehaviour
     public Stat armor;
     public Stat speed;
     public Stat attackRange;
-
+    public Stat attackSpeed;
+    public float curDCAtt = 0;
     public virtual void Awake()
     {
         instance = this;
