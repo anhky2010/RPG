@@ -19,7 +19,8 @@ MonoBehaviour:
   mana_Cost: 1
   damage: 20
   cooldown_Time: 5
-  current_cooldown_Time: -0.012094088
+  current_cooldown_Time: 0
   animation_Type: 2
   delay_Appear: 1
-  delay_Dmg: 5
+  delay_Dmg: 1
+  times_dmg: 3

@@ -31,6 +31,7 @@ public class Combat : MonoBehaviour
         {
             characterStats.curDCAtt -= Time.deltaTime;
         }
+
     }
 
 
@@ -42,8 +43,6 @@ public class Combat : MonoBehaviour
             {
                 if (enermyAnimation != null)
                 {
-                    //if (enermyAnimation.animator.GetCurrentAnimatorStateInfo(0).IsName("UD_infantry_07_attack_A"))
-                    //    return;
                     enermyAnimation.AttackAnimation();
                 }
             }
@@ -60,12 +59,16 @@ public class Combat : MonoBehaviour
     IEnumerator DoDamage(CharacterStats _stats, float _delayTime, int _dmg)
     {
         yield return new WaitForSeconds(_delayTime);
+
+        if (_stats != null) _stats.TakeDamage(_dmg);
+
+
         if (onCombat != null)
         {
             onCombat.Invoke();
         }
-        _stats.TakeDamage(_dmg);
     }
+
 
 
 

@@ -1,5 +1,7 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
+using System.Collections;
+
 [RequireComponent(typeof(PlayerMotorScript))]
 public class PlayerControlScript : MonoBehaviour
 {
@@ -78,6 +80,7 @@ public class PlayerControlScript : MonoBehaviour
                     return;
                 }
             }
+            //  return;
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -162,22 +165,29 @@ public class PlayerControlScript : MonoBehaviour
         if (targetStats != null)
         {
             motor.LookTarget(target);
-            UseSkill(target.interactableTranform.position, distance, targetStats);
+            StartCoroutine(UseSkill(target.interactableTranform.position, distance, targetStats));
         }
 
     }
 
-    public void UseSkill(Vector3 _pos, float _dis, CharacterStats _targerStat)
+    IEnumerator UseSkill(Vector3 _pos, float _dis, CharacterStats _targerStat)
     {
         Vector3 offset = new Vector3(0, 0, 0);
         int _dmg = 0;
         int _range = 0;
         float _delay_Dmg = 0;
-        if (skillManager.CastSkill(_pos + offset, _dis, ref _dmg, ref _range, ref _delay_Dmg))
+        int _times = 1; ;
+        if (skillManager.CastSkill(_pos + offset, _dis, ref _dmg, ref _range, ref _delay_Dmg, ref _times))
         {
-            combat.SkillAttack(_targerStat, _delay_Dmg, _dmg);
             motor.agent.stoppingDistance = _range;
-            Debug.Log("Player dung skill dmg " + _dmg);
+
+            for (int i = 0; i < _times; i++)
+            {
+                combat.SkillAttack(_targerStat, _delay_Dmg, _dmg);
+                Debug.Log("Player dung skill dmg " + _dmg);
+                yield return new WaitForSeconds(0.5f);
+            }
+
         }
     }
     public void AutoAttack(Intertactable target)

@@ -37,7 +37,9 @@ public class SkillManager : MonoBehaviour
         }
 
     }
-    public bool CastSkill(Vector3 _pos, float _distance, ref int _dmg, ref int _skill_range, ref float _dmg_delay)
+    public bool CastSkill(Vector3 _pos, float _distance,
+                                    ref int _dmg, ref int _skill_range,
+                                    ref float _dmg_delay, ref int _times)
     {
         int _orderSkill = 0;
         if (Input.GetKeyDown(KeyCode.Alpha1)) _orderSkill = 0;
@@ -74,6 +76,7 @@ public class SkillManager : MonoBehaviour
         _dmg = skill_temp.damage;
         _skill_range = skill_temp.skill_Range;
         _dmg_delay = skill_temp.delay_Dmg;
+        _times = skill_temp.times_dmg;
         return true;
     }
 

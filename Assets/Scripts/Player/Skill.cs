@@ -17,4 +17,5 @@ public class Skill : ScriptableObject
     public int animation_Type = 0;
     public float delay_Appear = 0;
     public float delay_Dmg = 0;
+    public int times_dmg = 1;
 }

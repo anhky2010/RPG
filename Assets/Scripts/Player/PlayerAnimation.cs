@@ -50,7 +50,7 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetTrigger("param_1HAttack");
         animator.speed = _speedAtt;
         Transform pTransform = PlayerManager.instance.player.transform;
-        Debug.Log(animator.speed);
+        //  Debug.Log(animator.speed);
     }
     public void CastSpellAnimation(int _paramValue)
     {

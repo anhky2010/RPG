@@ -225,6 +225,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DestroySelf.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -270,6 +271,8 @@
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
+    <Compile Include="Assets\HealthBar.cs" />
+    <Compile Include="Assets\HealthFloating.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\ChatBoxManager.cs" />
     <Compile Include="Assets\Scripts\Combat.cs" />
@@ -294,16 +297,16 @@
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControlScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInformation.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMotorScript.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Player\Skill.cs" />
     <Compile Include="Assets\Scripts\Player\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Player\UIbar.cs" />
-    <Compile Include="Assets\Scripts\PlayerManager.cs" />
-    <Compile Include="Assets\Scripts\SkillDetailPopup.cs" />
-    <Compile Include="Assets\Scripts\SkillManagerUI.cs" />
-    <Compile Include="Assets\Scripts\SkillPopupInformation.cs" />
-    <Compile Include="Assets\Scripts\SkillSlot.cs" />
+    <Compile Include="Assets\Scripts\Skill\SkillDetailPopup.cs" />
+    <Compile Include="Assets\Scripts\Skill\SkillManagerUI.cs" />
+    <Compile Include="Assets\Scripts\Skill\SkillPopupInformation.cs" />
+    <Compile Include="Assets\Scripts\Skill\SkillSlot.cs" />
     <Compile Include="Assets\Scripts\Stat.cs" />
     <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\FT_ClickToSpawn.cs" />
     <Compile Include="Assets\Skill Effect\Scenes\Data\Scripts\FT_PrefabCreate.cs" />
