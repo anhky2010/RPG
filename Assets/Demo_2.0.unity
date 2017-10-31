@@ -5600,7 +5600,7 @@ Prefab:
     - target: {fileID: 114904766100066556, guid: 3f017e5b9c5b8ab45aa325c9968d0749,
         type: 2}
       propertyPath: armor.baseValue
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f017e5b9c5b8ab45aa325c9968d0749, type: 2}
@@ -13632,15 +13632,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1392955013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82.34996, y: 1766.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1766.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385446863}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0.000038146973, y: 2000}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2000}
   m_SizeDelta: {x: 164, y: 2000}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1392955015

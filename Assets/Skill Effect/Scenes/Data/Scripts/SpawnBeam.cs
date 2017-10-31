@@ -33,32 +33,6 @@ public class SpawnBeam : MonoBehaviour
             Vector3 correctPoint = new Vector3(point.x, transform.position.y, point.z);
             transform.LookAt(correctPoint);
         }
-        //if (Input.GetKeyDown (KeyCode.RightArrow)) {
-        //	if (count >= effects.Length -1) {
-        //		count = 0;
-        //	} else {
-        //		count++;
-        //	}
-        //	text.text = effects [count].name;
-        //	for (int i = 0; i < parentObj.childCount; ++i) {
-        //		GameObject.Destroy (parentObj.GetChild (i).gameObject);
-        //	}
-        //	isBeam = false;
-        //}
-
-        //if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-        //	if (count <= 0) {
-        //		count = effects.Length -1;
-        //	} else {
-        //		count--;
-        //	}
-        //	text.text = effects [count].name;
-        //	for (int i = 0; i < parentObj.childCount; ++i) {
-        //		GameObject.Destroy (parentObj.GetChild (i).gameObject);
-        //	}
-        //	isBeam = false;
-        //}		
-
         //Shoot
         if (isBeam == false)
         {

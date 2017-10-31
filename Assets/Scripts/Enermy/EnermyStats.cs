@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnermyStats : CharacterStats
 {
+    public delegate void OnDoDamage(int _dmg);
+    public OnDoDamage onDoDamage;
 
     public override void Awake()
     {
@@ -13,5 +15,15 @@ public class EnermyStats : CharacterStats
     {
         base.Die();
         Destroy(gameObject);
+    }
+    public override void TakeDamage(int _dmg)
+    {
+        base.TakeDamage(_dmg);
+
+        if (onDoDamage != null)
+        {
+            onDoDamage.Invoke(dmgGetSubArmor);
+
+        }
     }
 }

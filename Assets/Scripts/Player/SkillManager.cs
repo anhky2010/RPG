@@ -9,7 +9,7 @@ public class SkillManager : MonoBehaviour
     public Skill[] List_SpawnSkill = new Skill[7];
     [SerializeField] Skill emptySkill;
     [SerializeField] GameObject Skill_SpawnStorage;
-
+    bool isCasting = false;
     public static SkillManager instance;
     private void Awake()
     {
@@ -50,6 +50,8 @@ public class SkillManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha6)) _orderSkill = 5;
         else if (Input.GetKeyDown(KeyCode.Alpha7)) _orderSkill = 6;
         else return false;
+        if (isCasting == true) return false;
+
         Skill skill_temp = List_SpawnSkill[_orderSkill];
         if (skill_temp.skill_name == emptySkill.skill_name)
         {
@@ -71,23 +73,23 @@ public class SkillManager : MonoBehaviour
         }
 
         PlayerAnimation.instance.CastSpellAnimation(skill_temp.animation_Type);
-
         StartCoroutine(CreateSkill(_orderSkill, _pos, skill_temp.delay_Appear));
         _dmg = skill_temp.damage;
         _skill_range = skill_temp.skill_Range;
         _dmg_delay = skill_temp.delay_Dmg;
         _times = skill_temp.times_dmg;
+        isCasting = true;
         return true;
     }
 
     IEnumerator CreateSkill(int _order, Vector3 _pos, float _delayTime)
     {
         yield return new WaitForSeconds(_delayTime);
+        isCasting = false;
         Skill tempSkill = List_SpawnSkill[_order];
         tempSkill.current_cooldown_Time = tempSkill.cooldown_Time;
-        GameObject temp = Instantiate(tempSkill.skill_Object, _pos, Quaternion.identity);
+        GameObject temp = Instantiate(tempSkill.skill_Object, _pos, tempSkill.skill_Object.transform.rotation);
         temp.transform.parent = Skill_SpawnStorage.transform;
-
     }
 
     public void AddSkillToList(SkillSlot[] _skillSlot)

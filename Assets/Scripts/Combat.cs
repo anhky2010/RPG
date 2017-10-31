@@ -10,6 +10,8 @@ public class Combat : MonoBehaviour
     //public event System.Action OnAttack;
     public delegate void OnCombat();
     public OnCombat onCombat;
+
+
     public float delay = .0f;
     [SerializeField] bool isPlayer = false;
     void Awake()
@@ -67,6 +69,7 @@ public class Combat : MonoBehaviour
         {
             onCombat.Invoke();
         }
+
     }
 
 

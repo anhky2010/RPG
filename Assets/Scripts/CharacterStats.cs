@@ -8,6 +8,7 @@ public class CharacterStats : MonoBehaviour
     public delegate void OnCharacterStatsChanged();
     public OnCharacterStatsChanged onCharacterStatsChanged;
 
+
     public int maxHealth = 1;
     public int currentHealth { get; private set; }
     public int maxMana = 1;
@@ -19,6 +20,7 @@ public class CharacterStats : MonoBehaviour
     public Stat attackRange;
     public Stat attackSpeed;
     public float curDCAtt = 0;
+    protected int dmgGetSubArmor = 0;
     public virtual void Awake()
     {
         instance = this;
@@ -26,12 +28,14 @@ public class CharacterStats : MonoBehaviour
         currentMana = maxMana;
     }
 
-    public void TakeDamage(int dmg)
+    public virtual void TakeDamage(int _dmg)
     {
-        dmg -= armor.GetFinalValue();
-        dmg = Mathf.Clamp(dmg, 0, int.MaxValue);
-        currentHealth -= dmg;
-        Debug.Log(transform.name + " takes " + dmg + " damage.");
+        _dmg -= armor.GetFinalValue();
+        _dmg = Mathf.Clamp(_dmg, 0, int.MaxValue);
+        currentHealth -= _dmg;
+        dmgGetSubArmor = _dmg;
+        Debug.Log(transform.name + " takes " + _dmg + " damage.");
+
         if (currentHealth <= 0)
         {
             Die();
@@ -40,6 +44,7 @@ public class CharacterStats : MonoBehaviour
         {
             onCharacterStatsChanged.Invoke();
         }
+
     }
 
     public virtual void Update()

@@ -15,10 +15,12 @@ MonoBehaviour:
     type: 2}
   skill_name: MagicCircleFire
   icon: {fileID: 21300000, guid: a6e649bea3404db4ba2e2912779b879d, type: 3}
-  skill_Range: 10
+  skill_Range: 8
   mana_Cost: 1
-  damage: 20
+  damage: 13
   cooldown_Time: 4
-  current_cooldown_Time: -0.0034101643
+  current_cooldown_Time: -0.0023282003
   animation_Type: 3
   delay_Appear: 2
+  delay_Dmg: 2
+  times_dmg: 6
