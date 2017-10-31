@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4032279144787058}
   - component: {fileID: 137174843341620632}
+  - component: {fileID: 114619263856603620}
+  - component: {fileID: 33255697011975792}
   m_Layer: 0
   m_Name: Shoes
   m_TagString: Untagged
@@ -40,6 +42,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33255697011975792
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850749210573352}
+  m_Mesh: {fileID: 4300010, guid: 73be9633513854604baae3aa06041436, type: 3}
+--- !u!114 &114619263856603620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850749210573352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb9bbd23d92f424898ba98a0e971490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137174843341620632
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -49,6 +69,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -64,6 +85,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

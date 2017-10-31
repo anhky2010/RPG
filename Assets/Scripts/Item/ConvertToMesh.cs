@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConvertToMesh : MonoBehaviour {
+public class ConvertToMesh : MonoBehaviour
+{
 
-   [ContextMenu("Convert to regular mesh")]
-   void Convert()
+    [ContextMenu("Convert to regular mesh")]
+    void Convert()
     {
         SkinnedMeshRenderer skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
