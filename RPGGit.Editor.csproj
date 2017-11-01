@@ -362,6 +362,11 @@
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Items\Greatsword\SpecLightDiffuse.shader" />
+    <None Include="Assets\PackV1\SkeletonData\animations.txt" />
+    <None Include="Assets\PackV1\Spider\readme.txt" />
+    <None Include="Assets\PackV1\Troll\Shader\Alpha_Texture.shader" />
+    <None Include="Assets\PackV1\Troll\Shader\DoubleSided-Light-Spec.shader" />
     <None Include="Assets\Skill Effect\Shaders\FT_Beam.shader" />
     <None Include="Assets\Skill Effect\Shaders\FT_DissolveSimple.shader" />
     <None Include="Assets\Skill Effect\Shaders\FT_DoubleDistortion.shader" />

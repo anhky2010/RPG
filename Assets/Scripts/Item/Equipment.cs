@@ -8,8 +8,8 @@ public class Equipment : Item
 {
 
     public EquipmentType equipmentType;
-    public SkinnedMeshRenderer mesh;
-    public EquipmentMeshType[] equipmentMeshType;
+    public GameObject gameObject;
+    //public EquipmentMeshType[] equipmentMeshType;
     public override void Use()
     {
         base.Use();
@@ -20,4 +20,4 @@ public class Equipment : Item
 
 }
 public enum EquipmentType { Head, Chest, Legs, Weapon, Shield };
-public enum EquipmentMeshType { Head, Armor, Legs };
+//public enum EquipmentMeshType { Head, Armor, Legs };

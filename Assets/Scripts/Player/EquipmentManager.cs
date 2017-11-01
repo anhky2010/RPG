@@ -20,7 +20,8 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] GameObject currentEquipmentParent;
     InventorySlot[] currentEquipmentSlots;
     Equipment[] currentEquipment;
-    // public Equipment[] defaultEquipmentItems;
+    [SerializeField] Transform RightHand;
+    [SerializeField] Transform currentWeapon;
     //public SkinnedMeshRenderer playerMesh;
     //SkinnedMeshRenderer[] currentMeshes;
     private void Start()
@@ -32,8 +33,10 @@ public class EquipmentManager : MonoBehaviour
         //EquipDefaultItems();
     }
 
+
     public void Equip(Equipment newEquipment)
     {
+
         int slotIndex = (int)newEquipment.equipmentType;
         Unequip(slotIndex);
         Equipment oldItem = Unequip(slotIndex);
@@ -44,15 +47,29 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(oldItem, newEquipment);
         }
+        WeaponChange(newEquipment);
         ShowCurrentEquipments();
-        //SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newEquipment.mesh);
-        //newMesh.transform.parent = playerMesh.transform;
-        //newMesh.bones = playerMesh.bones;
-        //newMesh.rootBone = playerMesh.rootBone;
-        //currentMeshes[slotIndex] = newMesh;
+
 
     }
+    private void WeaponChange(Equipment _newItem)
+    {
+        if (_newItem.equipmentType == EquipmentType.Weapon)
+        {
+            MeshFilter newmeshFilter = _newItem.gameObject.GetComponent<MeshFilter>();
+            MeshRenderer newmeshRenderer = _newItem.gameObject.GetComponent<MeshRenderer>();
 
+            MeshFilter oldmeshFilter = currentWeapon.GetComponent<MeshFilter>();
+            MeshRenderer oldmeshRenderer = currentWeapon.GetComponent<MeshRenderer>();
+
+            oldmeshFilter.sharedMesh = newmeshFilter.sharedMesh;
+            oldmeshRenderer.sharedMaterials = newmeshRenderer.sharedMaterials;
+            currentWeapon.localPosition = _newItem.gameObject.transform.position;
+            currentWeapon.localRotation = _newItem.gameObject.transform.rotation;
+            currentWeapon.localScale = _newItem.gameObject.transform.localScale;
+
+        }
+    }
     //void EquipDefaultItems()
     //{
     //    foreach (var item in defaultEquipmentItems)
@@ -115,7 +132,6 @@ public class EquipmentManager : MonoBehaviour
 
     private void ShowCurrentEquipments()
     {
-
         for (int i = 0; i < currentEquipment.Length; i++)
         {
             if (currentEquipment[i] != null)

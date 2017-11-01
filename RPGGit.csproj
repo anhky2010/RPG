@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -274,6 +276,8 @@
     <Compile Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\HealthFloating.cs" />
+    <Compile Include="Assets\PackV1\Bottles\Scripts\BowString.cs" />
+    <Compile Include="Assets\PackV1\Bottles\Scripts\OpenChest.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\ChatBoxManager.cs" />
     <Compile Include="Assets\Scripts\Combat.cs" />
@@ -369,6 +373,11 @@
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\Uber.shader" />
     <None Include="Assets\Environment\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\Environment\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
+    <None Include="Assets\Items\Greatsword\SpecLightDiffuse.shader" />
+    <None Include="Assets\PackV1\SkeletonData\animations.txt" />
+    <None Include="Assets\PackV1\Spider\readme.txt" />
+    <None Include="Assets\PackV1\Troll\Shader\Alpha_Texture.shader" />
+    <None Include="Assets\PackV1\Troll\Shader\DoubleSided-Light-Spec.shader" />
     <None Include="Assets\Skill Effect\Shaders\FT_Beam.shader" />
     <None Include="Assets\Skill Effect\Shaders\FT_DissolveSimple.shader" />
     <None Include="Assets\Skill Effect\Shaders\FT_DoubleDistortion.shader" />
