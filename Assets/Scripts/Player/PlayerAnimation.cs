@@ -22,6 +22,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+
     }
 
     // Update is called once per frame
@@ -51,6 +52,10 @@ public class PlayerAnimation : MonoBehaviour
         animator.speed = _speedAtt;
         Transform pTransform = PlayerManager.instance.player.transform;
         //  Debug.Log(animator.speed);
+    }
+    public void DeathAnimation()
+    {
+        animator.Play("Death");
     }
     public void CastSpellAnimation(int _paramValue)
     {

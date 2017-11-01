@@ -22,7 +22,10 @@ public class EnermyAnimation : MonoBehaviour
     {
         Run();
     }
-
+    public void DeathAnimation()
+    {
+        animator.Play("Death_2");
+    }
     private void Run()
     {
         float speed = agent.velocity.magnitude / agent.speed;

@@ -28,6 +28,7 @@ public class EnermiesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enermyStats.alive == false) return;
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance < lookRadius)
         {

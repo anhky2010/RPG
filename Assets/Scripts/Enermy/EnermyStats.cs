@@ -6,15 +6,20 @@ public class EnermyStats : CharacterStats
 {
     public delegate void OnDoDamage(int _dmg);
     public OnDoDamage onDoDamage;
-
+    private EnermyAnimation enermyAnimation;
     public override void Awake()
     {
         base.Awake();
     }
+    public void Start()
+    {
+        enermyAnimation = this.gameObject.GetComponent<EnermyAnimation>();
+    }
     public override void Die()
     {
         base.Die();
-        Destroy(gameObject);
+        enermyAnimation.DeathAnimation();
+        Destroy(gameObject, 3f);
     }
     public override void TakeDamage(int _dmg)
     {
@@ -26,4 +31,5 @@ public class EnermyStats : CharacterStats
 
         }
     }
+
 }

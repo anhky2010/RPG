@@ -8,7 +8,7 @@ public class CharacterStats : MonoBehaviour
     public delegate void OnCharacterStatsChanged();
     public OnCharacterStatsChanged onCharacterStatsChanged;
 
-
+    public bool alive;
     public int maxHealth = 1;
     public int currentHealth { get; private set; }
     public int maxMana = 1;
@@ -23,6 +23,7 @@ public class CharacterStats : MonoBehaviour
     protected int dmgGetSubArmor = 0;
     public virtual void Awake()
     {
+        alive = true;
         instance = this;
         currentHealth = maxHealth;
         currentMana = maxMana;
@@ -38,7 +39,10 @@ public class CharacterStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            if (alive == true)
+            {
+                Die();
+            }
         }
         if (onCharacterStatsChanged != null)
         {
@@ -46,14 +50,12 @@ public class CharacterStats : MonoBehaviour
         }
 
     }
-
     public virtual void Update()
     {
-
     }
 
     public virtual void Die()
     {
-
+        alive = false;
     }
 }

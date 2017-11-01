@@ -38,6 +38,7 @@ public class PlayerControlScript : MonoBehaviour
             return; //check xem co click len UI hay ko
         }
 
+        if (!PlayerStats.instance.alive) return;
         SetHitMark();
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;

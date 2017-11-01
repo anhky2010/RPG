@@ -54,4 +54,10 @@ public class PlayerStats : CharacterStats
             onPlayerStatsChanged.Invoke();
         }
     }
+    public override void Die()
+    {
+        base.Die();
+        PlayerAnimation.instance.DeathAnimation();
+
+    }
 }
