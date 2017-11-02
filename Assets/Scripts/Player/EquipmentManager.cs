@@ -21,11 +21,13 @@ public class EquipmentManager : MonoBehaviour
     InventorySlot[] currentEquipmentSlots;
     Equipment[] currentEquipment;
     [SerializeField] Transform RightHand;
-    [SerializeField] Transform currentWeapon;
+    [SerializeField] GameObject currentWeapon;
+    [SerializeField] Equipment beginWeapon;
     //public SkinnedMeshRenderer playerMesh;
     //SkinnedMeshRenderer[] currentMeshes;
     private void Start()
     {
+
         int numslot = System.Enum.GetNames(typeof(EquipmentType)).Length;
         currentEquipment = new Equipment[numslot];
         currentEquipmentSlots = currentEquipmentParent.GetComponentsInChildren<InventorySlot>();
@@ -47,12 +49,12 @@ public class EquipmentManager : MonoBehaviour
         {
             onEquipmentChanged.Invoke(oldItem, newEquipment);
         }
-        WeaponChange(newEquipment);
+        WeaponChangeAppreance(newEquipment);
         ShowCurrentEquipments();
 
 
     }
-    private void WeaponChange(Equipment _newItem)
+    private void WeaponChangeAppreance(Equipment _newItem)
     {
         if (_newItem.equipmentType == EquipmentType.Weapon)
         {
@@ -61,13 +63,12 @@ public class EquipmentManager : MonoBehaviour
 
             MeshFilter oldmeshFilter = currentWeapon.GetComponent<MeshFilter>();
             MeshRenderer oldmeshRenderer = currentWeapon.GetComponent<MeshRenderer>();
-
             oldmeshFilter.sharedMesh = newmeshFilter.sharedMesh;
             oldmeshRenderer.sharedMaterials = newmeshRenderer.sharedMaterials;
-            currentWeapon.localPosition = _newItem.gameObject.transform.position;
-            currentWeapon.localRotation = _newItem.gameObject.transform.rotation;
-            currentWeapon.localScale = _newItem.gameObject.transform.localScale;
 
+            currentWeapon.transform.localPosition = _newItem.gameObject.transform.position;
+            currentWeapon.transform.localRotation = _newItem.gameObject.transform.rotation;
+            currentWeapon.transform.localScale = _newItem.gameObject.transform.localScale;
         }
     }
     //void EquipDefaultItems()
@@ -99,6 +100,7 @@ public class EquipmentManager : MonoBehaviour
             ShowCurrentEquipments();
             return oldItem;
         }
+        // WeaponChangeAppreance(beginWeapon);
         ShowCurrentEquipments();
         return null;
     }
@@ -114,11 +116,15 @@ public class EquipmentManager : MonoBehaviour
     //}
     public void UnequipAll()
     {
+
         for (int i = 0; i < currentEquipment.Length; i++)
         {
             Unequip(i);
         }
         ShowCurrentEquipments();
+
+        WeaponChangeAppreance(beginWeapon);
+
         //EquipDefaultItems();
     }
 

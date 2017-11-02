@@ -17,4 +17,4 @@ MonoBehaviour:
   Damage: 100
   Defence: 0
   equipmentType: 3
-  equipmentMeshType: 
+  gameObject: {fileID: 1217874222417758, guid: 950f23ad82752b646b548fefc317292a, type: 2}

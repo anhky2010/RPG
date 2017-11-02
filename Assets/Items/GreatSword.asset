@@ -17,4 +17,4 @@ MonoBehaviour:
   Damage: 30
   Defence: 30
   equipmentType: 3
-  gameObject: {fileID: 1103845913196198, guid: f27b4b41126d26f4abf76e8bf5533329, type: 2}
+  gameObject: {fileID: 1024349266501882, guid: 05de681cdee99bf4ab88180c8f9880f9, type: 2}
