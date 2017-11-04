@@ -33,11 +33,14 @@ public class PlayerMotorScript : MonoBehaviour
 
     //theo sau 1 vat the
     public void FollowTarget(Intertactable newTarger)
-    {
-        agent.stoppingDistance = newTarger.radius * 1f;
+    {     
         agent.updateRotation = false;
         target = newTarger.interactableTranform;
         agent.SetDestination(target.position);
+    }
+    public void SetDistance(int _playerRange, float targerRadius)
+    {
+        agent.stoppingDistance = targerRadius + _playerRange;
     }
     public void LookTarget(Intertactable newTarger)
     {

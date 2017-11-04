@@ -4,8 +4,27 @@ timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
+    100000: Bone01
+    100002: Bone02
+    100004: Bone03
+    100006: Bone04
+    100008: Cape
+    100010: //RootNode
+    400000: Bone01
+    400002: Bone02
+    400004: Bone03
+    400006: Bone04
+    400008: Cape
+    400010: //RootNode
     4300000: Cape
-  externalObjects: {}
+    11100000: //RootNode
+    13700000: Cape
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: New
+    second: {fileID: 2100000, guid: 6aff658bc7944a445bc484f843f91b38, type: 2}
   materials:
     importMaterials: 1
     materialName: 3

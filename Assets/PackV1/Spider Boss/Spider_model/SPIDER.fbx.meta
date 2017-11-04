@@ -114,6 +114,8 @@ ModelImporter:
     400104: zubA_R
     400106: zubB_L
     400108: zubB_R
+    2300000: Mesh
+    3300000: Mesh
     4300000: Mesh
     7400000: Default Take
     7400002: Attack
@@ -123,17 +125,132 @@ ModelImporter:
     7400010: Idle
     7400012: Run
     7400014: Walk
+    7400016: Attack //// Armature
+    7400018: Attack_Left //// Armature
+    7400020: Attack_Right //// Armature
+    7400022: Death //// Armature
+    7400024: Idle //// Armature
+    7400026: Run //// Armature
+    7400028: Walk //// Armature
+    7400030: Attack //// Armature
+    7400032: Attack_Left //// Armature
+    7400034: Attack_Right //// Armature
+    7400036: Death //// Armature
+    7400038: Idle //// Armature
+    7400040: Run //// Armature
+    7400042: Walk //// Armature
+    7400044: Attack //// Armature
+    7400046: Attack_Left //// Armature
+    7400048: Attack_Right //// Armature
+    7400050: Death //// Armature
+    7400052: Idle //// Armature
+    7400054: Run //// Armature
+    7400056: Walk //// Armature
+    7400058: Attack //// Armature
+    7400060: Attack_Left //// Armature
+    7400062: Attack_Right //// Armature
+    7400064: Death //// Armature
+    7400066: Idle //// Armature
+    7400068: Run //// Armature
+    7400070: Walk //// Armature
+    7400072: Attack //// Armature
+    7400074: Attack_Left //// Armature
+    7400076: Attack_Right //// Armature
+    7400078: Death //// Armature
+    7400080: Idle //// Armature
+    7400082: Run //// Armature
+    7400084: Walk //// Armature
+    7400086: Attack //// Armature
+    7400088: Attack_Left //// Armature
+    7400090: Attack_Right //// Armature
+    7400092: Death //// Armature
+    7400094: Idle //// Armature
+    7400096: Run //// Armature
+    7400098: Walk //// Armature
+    7400100: Attack //// Armature
+    7400102: Attack_Left //// Armature
+    7400104: Attack_Right //// Armature
+    7400106: Death //// Armature
+    7400108: Idle //// Armature
+    7400110: Run //// Armature
+    7400112: Walk //// Armature
+    7400114: Attack //// Armature
+    7400116: Attack_Left //// Armature
+    7400118: Attack_Right //// Armature
+    7400120: Death //// Armature
+    7400122: Idle //// Armature
+    7400124: Run //// Armature
+    7400126: Walk //// Armature
     9500000: //RootNode
     11100000: //RootNode
+    11100002: Armature
+    11100004: Bone_003
+    11100006: Bone_004
+    11100008: Head
+    11100010: IKnoga_001_L
+    11100012: IKnoga_001_R
+    11100014: IKnoga_002_L
+    11100016: IKnoga_002_R
+    11100018: IKnoga_003_L
+    11100020: IKnoga_003_R
+    11100022: IKnoga_L
+    11100024: IKnoga_R
+    11100026: IKzub_L
+    11100028: IKzub_R
+    11100030: Master
+    11100032: Mesh
+    11100034: nogaA_001_L
+    11100036: nogaA_001_R
+    11100038: nogaA_002_L
+    11100040: nogaA_002_R
+    11100042: nogaA_003_L
+    11100044: nogaA_003_R
+    11100046: nogaA_L
+    11100048: nogaA_R
+    11100050: nogaB_001_L
+    11100052: nogaB_001_R
+    11100054: nogaB_002_L
+    11100056: nogaB_002_R
+    11100058: nogaB_003_L
+    11100060: nogaB_003_R
+    11100062: nogaB_L
+    11100064: nogaB_R
+    11100066: nogaC_001_L
+    11100068: nogaC_001_R
+    11100070: nogaC_002_L
+    11100072: nogaC_002_R
+    11100074: nogaC_003_L
+    11100076: nogaC_003_R
+    11100078: nogaC_L
+    11100080: nogaC_R
+    11100082: nogaD_001_L
+    11100084: nogaD_001_R
+    11100086: nogaD_002_L
+    11100088: nogaD_002_R
+    11100090: nogaD_003_L
+    11100092: nogaD_003_R
+    11100094: nogaD_L
+    11100096: nogaD_R
+    11100098: Sheya
+    11100100: Thorso
+    11100102: zubA_L
+    11100104: zubA_R
+    11100106: zubB_L
+    11100108: zubB_R
     13700000: Mesh
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RetopoGroup2_Default__texture_spider_jpg
+    second: {fileID: 2100000, guid: 78d88e566e5f7b14aaa719c52b23bd6c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 0
   animations:
-    legacyGenerateAnimations: 4
+    legacyGenerateAnimations: 1
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
@@ -145,7 +262,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -276,7 +393,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -304,7 +421,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -332,7 +449,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -388,13 +505,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: 
+    rootMotionBoneName: Mesh
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 1
   userData: 

@@ -47,7 +47,7 @@ public class PlayerControlScript : MonoBehaviour
             intertactable = null;
             if (Physics.Raycast(ray, out hit, 100))
             {
-                intertactable = hit.collider.GetComponent<Intertactable>();
+                intertactable = hit.collider.gameObject.GetComponentInParent<Intertactable>();
                 if (intertactable != null)
                 {
                     motor.agent.speed = PlayerStats.instance_player.speed.GetFinalValue();
@@ -87,7 +87,8 @@ public class PlayerControlScript : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, 100))
             {
-                intertactable = hit.collider.GetComponent<Intertactable>();
+                intertactable = hit.collider.gameObject.GetComponentInParent<Intertactable>();
+                //  Debug.Log(hit.collider.name);
                 if (intertactable != null)
                 {
                     hitMark.SetActive(false);
@@ -144,14 +145,18 @@ public class PlayerControlScript : MonoBehaviour
         if (!pAni.animator.GetCurrentAnimatorStateInfo(0).IsName("1HAttack"))
         {
             if (targetStats == null) return;
-            float distance = Vector3.Distance(target.interactableTranform.position, transform.position);
+
             //set khoang cach dung nhan vat ung voi attack range 
-            motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
-            if (distance < playerStats.attackRange.GetFinalValue())
+            //   motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
+            motor.SetDistance(playerStats.attackRange.GetFinalValue(), target.radiusInteractable);
+            float distance = Vector3.Distance(target.interactableTranform.position, transform.position);
+
+            if (distance < playerStats.attackRange.GetFinalValue() + target.radiusInteractable)
             {
+                motor.SetDistance(playerStats.attackRange.GetFinalValue(), target.radiusInteractable);
                 pAni.AttackAnimation(playerStats.attackSpeed.GetFinalValue());
                 combat.Attack(targetStats);
-                motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();
+                //ss  motor.agent.stoppingDistance = playerStats.attackRange.GetFinalValue();              
                 // Debug.Log("Player tan cong");
             }
         }

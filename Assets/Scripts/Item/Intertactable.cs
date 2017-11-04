@@ -2,7 +2,7 @@
 
 public class Intertactable : MonoBehaviour
 {
-    public float radius = 3f;
+    public float radiusInteractable = 3f; 
     public Transform interactableTranform;
     bool isFocus = false;
     Transform player;
@@ -13,13 +13,12 @@ public class Intertactable : MonoBehaviour
         if (isFocus && hasInteracted == false)
         {
             float distance = Vector3.Distance(player.position, interactableTranform.position);
-            if (distance < radius)
+            if (distance < radiusInteractable)
             {
                 Interact();
                 hasInteracted = true;
             }
         }
-
     }
 
     public virtual void Interact()
@@ -45,8 +44,10 @@ public class Intertactable : MonoBehaviour
         {
             interactableTranform = this.transform;
         }
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(interactableTranform.position, radius);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(interactableTranform.position, radiusInteractable);
+
+       
     }
 
 }

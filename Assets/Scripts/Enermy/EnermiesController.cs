@@ -29,21 +29,7 @@ public class EnermiesController : MonoBehaviour
     void Update()
     {
         if (enermyStats.alive == false) return;
-        float distance = Vector3.Distance(target.position, transform.position);
-        if (distance < lookRadius)
-        {
-            agent.SetDestination(target.position);
-            FaceTarget();
-            CharacterStats targetStats = target.GetComponent<PlayerStats>();
-            if (distance < enemy.radius)
-            {
-                if (targetStats != null)
-                {
-                    combat.Attack(targetStats); //tan cong nguoi choi
-                }
-            }
-        }
-        else agent.SetDestination(startPosition);
+        AutoAttack();
     }
 
     void FaceTarget()
@@ -51,6 +37,50 @@ public class EnermiesController : MonoBehaviour
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRatation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRatation, Time.deltaTime * 5f);
+    }
+
+    public void Attack()
+    {
+        EnermyAnimation eAni = GetComponent<EnermyAnimation>();
+        CharacterStats targetStats = target.GetComponent<PlayerStats>();
+        if (enermyStats.curDCAtt > 0) return;
+
+        if (!eAni.animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            if (targetStats == null) return;
+            float distance = Vector3.Distance(target.transform.position, transform.position);
+            //set khoang cach dung nhan vat ung voi attack range 
+            agent.stoppingDistance = enermyStats.attackRange.GetFinalValue();
+            if (distance < enermyStats.attackRange.GetFinalValue())
+            {
+                eAni.AttackAnimation(enermyStats.attackSpeed.GetFinalValue());
+                combat.Attack(targetStats);
+                agent.stoppingDistance = enermyStats.attackRange.GetFinalValue();
+                // Debug.Log("Player tan cong");
+            }
+        }
+    }
+
+    public void AutoAttack()
+    {
+        float distance = Vector3.Distance(target.position, transform.position);
+        if (distance < lookRadius)
+        {
+            agent.SetDestination(target.position);
+            FaceTarget();
+            CharacterStats targetStats = target.GetComponent<PlayerStats>();
+            if (distance < enemy.radiusInteractable)
+            {
+                if (targetStats != null)
+                {
+                    Attack(); //tan cong nguoi choi
+                }
+            }
+        }
+        else agent.SetDestination(startPosition);
+
+      
+        
     }
     private void OnDrawGizmosSelected()
     {

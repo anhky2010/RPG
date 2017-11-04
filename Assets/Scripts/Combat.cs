@@ -5,26 +5,18 @@ using UnityEngine;
 public class Combat : MonoBehaviour
 {
     public static Combat instance;
-    CharacterStats characterStats;
-    EnermyAnimation enermyAnimation;
+    CharacterStats characterStats; 
     //public event System.Action OnAttack;
     public delegate void OnCombat();
     public OnCombat onCombat;
-
-
-    public float delay = .0f;
-    [SerializeField] bool isPlayer = false;
+    public float delay = .0f; 
     void Awake()
     {
         instance = this;
     }
     private void Start()
     {
-
-        if (!isPlayer)
-        {
-            enermyAnimation = GetComponent<EnermyAnimation>();
-        }
+        
         characterStats = GetComponent<CharacterStats>();
     }
     private void Update()
@@ -40,14 +32,7 @@ public class Combat : MonoBehaviour
     public void Attack(CharacterStats targetStats)
     {
         if (characterStats.curDCAtt <= 0f)
-        {
-            if (isPlayer == false)
-            {
-                if (enermyAnimation != null)
-                {
-                    enermyAnimation.AttackAnimation();
-                }
-            }
+        {     
             int _dmg = characterStats.damage.GetFinalValue();
             StartCoroutine(DoDamage(targetStats, delay, _dmg));
             characterStats.curDCAtt = 1f / characterStats.attackSpeed.GetFinalValue(); ;

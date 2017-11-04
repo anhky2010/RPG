@@ -4,7 +4,419 @@ timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
+    100000: Bone004
+    100002: Bone007
+    100004: Bone010
+    100006: Bone010(mirrored)
+    100008: Bone013(mirrored)
+    100010: Bone013(mirrored)(mirrored)
+    100012: Bone018
+    100014: Bone018(mirrored)
+    100016: Bone020
+    100018: Bone020(mirrored)
+    100020: Bone028
+    100022: Bone028(mirrored)
+    100024: Bone032
+    100026: Bone032(mirrored)
+    100028: Bone036
+    100030: Bone036(mirrored)
+    100032: Bone040
+    100034: Bone040(mirrored)
+    100036: Bone041
+    100038: Bone041(mirrored)
+    100040: Bone044
+    100042: Bone044(mirrored)
+    100044: Bone047
+    100046: Bone047(mirrored)
+    100048: Bone050
+    100050: Bone050(mirrored)
+    100052: Bone053
+    100054: Bone053(mirrored)
+    100056: Bone055
+    100058: Bone056
+    100060: Bone057
+    100062: Bone058
+    100064: Bone059
+    100066: Bone060
+    100068: Bone061
+    100070: Bone062
+    100072: Bone063
+    100074: Bone064
+    100076: Bone065
+    100078: Bone066
+    100080: Bone067
+    100082: Bone068
+    100084: Bone069
+    100086: Bone070
+    100088: Bone071
+    100090: Bone072
+    100092: Bone073
+    100094: Bone074
+    100096: Bone075
+    100098: Bone076
+    100100: Bone077
+    100102: Bone078
+    100104: Bone079
+    100106: Bone079(mirrored)
+    100108: Bone080
+    100110: Bone080(mirrored)
+    100112: Bone081
+    100114: Bone081(mirrored)
+    100116: Bone082
+    100118: Bone082(mirrored)
+    100120: Head
+    100122: Hips
+    100124: Hips 1
+    100126: Jaw
+    100128: Left Clavicle
+    100130: Left Foot
+    100132: Left Hand
+    100134: Left Index 01
+    100136: Left Index 02
+    100138: Left Index 03
+    100140: Left Lower Arm
+    100142: Left Lower Leg
+    100144: Left Middle 01
+    100146: Left Middle 02
+    100148: Left Middle 03
+    100150: Left Pink 01
+    100152: Left Pink 02
+    100154: Left Pink 03
+    100156: Left Ring 01
+    100158: Left Ring 02
+    100160: Left Ring 03
+    100162: Left Thumb 01
+    100164: Left Thumb 02
+    100166: Left Thumb 03
+    100168: Left Toe
+    100170: Left Toe 01
+    100172: Left Toe 02
+    100174: Left Toe 03
+    100176: Left Toe 04
+    100178: Left Toe 05
+    100180: Left Toe 06
+    100182: Left Toe 07
+    100184: Left Toe 08
+    100186: Left Upper Arm
+    100188: Left Upper Leg
+    100190: Neck
+    100192: Right Clavicle
+    100194: Right Foot
+    100196: Right Hand
+    100198: Right Index 01
+    100200: Right Index 02
+    100202: Right Index 03
+    100204: Right Lower Arm
+    100206: Right Lower Leg
+    100208: Right Middle 01
+    100210: Right Middle 02
+    100212: Right Middle 03
+    100214: Right Pink 01
+    100216: Right Pink 02
+    100218: Right Pink 03
+    100220: Right Ring 01
+    100222: Right Ring 02
+    100224: Right Ring 03
+    100226: Right Thumb 01
+    100228: Right Thumb 02
+    100230: Right Thumb 03
+    100232: Right Toe
+    100234: Right Toe 01
+    100236: Right Toe 02
+    100238: Right Toe 03
+    100240: Right Toe 04
+    100242: Right Toe 05
+    100244: Right Toe 06
+    100246: Right Toe 07
+    100248: Right Toe 08
+    100250: Right Upper Arm
+    100252: Right Upper Leg
+    100254: Spine 01
+    100256: Spine 02
+    100258: //RootNode
+    100260: Troll
+    400000: Bone004
+    400002: Bone007
+    400004: Bone010
+    400006: Bone010(mirrored)
+    400008: Bone013(mirrored)
+    400010: Bone013(mirrored)(mirrored)
+    400012: Bone018
+    400014: Bone018(mirrored)
+    400016: Bone020
+    400018: Bone020(mirrored)
+    400020: Bone028
+    400022: Bone028(mirrored)
+    400024: Bone032
+    400026: Bone032(mirrored)
+    400028: Bone036
+    400030: Bone036(mirrored)
+    400032: Bone040
+    400034: Bone040(mirrored)
+    400036: Bone041
+    400038: Bone041(mirrored)
+    400040: Bone044
+    400042: Bone044(mirrored)
+    400044: Bone047
+    400046: Bone047(mirrored)
+    400048: Bone050
+    400050: Bone050(mirrored)
+    400052: Bone053
+    400054: Bone053(mirrored)
+    400056: Bone055
+    400058: Bone056
+    400060: Bone057
+    400062: Bone058
+    400064: Bone059
+    400066: Bone060
+    400068: Bone061
+    400070: Bone062
+    400072: Bone063
+    400074: Bone064
+    400076: Bone065
+    400078: Bone066
+    400080: Bone067
+    400082: Bone068
+    400084: Bone069
+    400086: Bone070
+    400088: Bone071
+    400090: Bone072
+    400092: Bone073
+    400094: Bone074
+    400096: Bone075
+    400098: Bone076
+    400100: Bone077
+    400102: Bone078
+    400104: Bone079
+    400106: Bone079(mirrored)
+    400108: Bone080
+    400110: Bone080(mirrored)
+    400112: Bone081
+    400114: Bone081(mirrored)
+    400116: Bone082
+    400118: Bone082(mirrored)
+    400120: Head
+    400122: Hips
+    400124: Hips 1
+    400126: Jaw
+    400128: Left Clavicle
+    400130: Left Foot
+    400132: Left Hand
+    400134: Left Index 01
+    400136: Left Index 02
+    400138: Left Index 03
+    400140: Left Lower Arm
+    400142: Left Lower Leg
+    400144: Left Middle 01
+    400146: Left Middle 02
+    400148: Left Middle 03
+    400150: Left Pink 01
+    400152: Left Pink 02
+    400154: Left Pink 03
+    400156: Left Ring 01
+    400158: Left Ring 02
+    400160: Left Ring 03
+    400162: Left Thumb 01
+    400164: Left Thumb 02
+    400166: Left Thumb 03
+    400168: Left Toe
+    400170: Left Toe 01
+    400172: Left Toe 02
+    400174: Left Toe 03
+    400176: Left Toe 04
+    400178: Left Toe 05
+    400180: Left Toe 06
+    400182: Left Toe 07
+    400184: Left Toe 08
+    400186: Left Upper Arm
+    400188: Left Upper Leg
+    400190: Neck
+    400192: Right Clavicle
+    400194: Right Foot
+    400196: Right Hand
+    400198: Right Index 01
+    400200: Right Index 02
+    400202: Right Index 03
+    400204: Right Lower Arm
+    400206: Right Lower Leg
+    400208: Right Middle 01
+    400210: Right Middle 02
+    400212: Right Middle 03
+    400214: Right Pink 01
+    400216: Right Pink 02
+    400218: Right Pink 03
+    400220: Right Ring 01
+    400222: Right Ring 02
+    400224: Right Ring 03
+    400226: Right Thumb 01
+    400228: Right Thumb 02
+    400230: Right Thumb 03
+    400232: Right Toe
+    400234: Right Toe 01
+    400236: Right Toe 02
+    400238: Right Toe 03
+    400240: Right Toe 04
+    400242: Right Toe 05
+    400244: Right Toe 06
+    400246: Right Toe 07
+    400248: Right Toe 08
+    400250: Right Upper Arm
+    400252: Right Upper Leg
+    400254: Spine 01
+    400256: Spine 02
+    400258: //RootNode
+    400260: Troll
     4300000: Troll
+    7400000: Idle_01
+    7400002: Idle_02
+    7400004: Walk
+    7400006: Run
+    7400008: Jump
+    7400010: Attack_01
+    7400012: Attack_02
+    7400014: Hit
+    7400016: Die
+    7400018: Idle_01 //// Hips
+    7400020: Idle_02 //// Hips
+    7400022: Walk //// Hips
+    7400024: Run //// Hips
+    7400026: Jump //// Hips
+    7400028: Attack_01 //// Hips
+    7400030: Attack_02 //// Hips
+    7400032: Hit //// Hips
+    7400034: Die //// Hips
+    11100000: //RootNode
+    11100002: Bone004
+    11100004: Bone007
+    11100006: Bone010
+    11100008: Bone010(mirrored)
+    11100010: Bone013(mirrored)
+    11100012: Bone013(mirrored)(mirrored)
+    11100014: Bone018
+    11100016: Bone018(mirrored)
+    11100018: Bone020
+    11100020: Bone020(mirrored)
+    11100022: Bone028
+    11100024: Bone028(mirrored)
+    11100026: Bone032
+    11100028: Bone032(mirrored)
+    11100030: Bone036
+    11100032: Bone036(mirrored)
+    11100034: Bone040
+    11100036: Bone040(mirrored)
+    11100038: Bone041
+    11100040: Bone041(mirrored)
+    11100042: Bone044
+    11100044: Bone044(mirrored)
+    11100046: Bone047
+    11100048: Bone047(mirrored)
+    11100050: Bone050
+    11100052: Bone050(mirrored)
+    11100054: Bone053
+    11100056: Bone053(mirrored)
+    11100058: Bone055
+    11100060: Bone056
+    11100062: Bone057
+    11100064: Bone058
+    11100066: Bone059
+    11100068: Bone060
+    11100070: Bone061
+    11100072: Bone062
+    11100074: Bone063
+    11100076: Bone064
+    11100078: Bone065
+    11100080: Bone066
+    11100082: Bone067
+    11100084: Bone068
+    11100086: Bone069
+    11100088: Bone070
+    11100090: Bone071
+    11100092: Bone072
+    11100094: Bone073
+    11100096: Bone074
+    11100098: Bone075
+    11100100: Bone076
+    11100102: Bone077
+    11100104: Bone078
+    11100106: Bone079
+    11100108: Bone079(mirrored)
+    11100110: Bone080
+    11100112: Bone080(mirrored)
+    11100114: Bone081
+    11100116: Bone081(mirrored)
+    11100118: Bone082
+    11100120: Bone082(mirrored)
+    11100122: Head
+    11100124: Hips
+    11100126: Hips 1
+    11100128: Jaw
+    11100130: Left Clavicle
+    11100132: Left Foot
+    11100134: Left Hand
+    11100136: Left Index 01
+    11100138: Left Index 02
+    11100140: Left Index 03
+    11100142: Left Lower Arm
+    11100144: Left Lower Leg
+    11100146: Left Middle 01
+    11100148: Left Middle 02
+    11100150: Left Middle 03
+    11100152: Left Pink 01
+    11100154: Left Pink 02
+    11100156: Left Pink 03
+    11100158: Left Ring 01
+    11100160: Left Ring 02
+    11100162: Left Ring 03
+    11100164: Left Thumb 01
+    11100166: Left Thumb 02
+    11100168: Left Thumb 03
+    11100170: Left Toe
+    11100172: Left Toe 01
+    11100174: Left Toe 02
+    11100176: Left Toe 03
+    11100178: Left Toe 04
+    11100180: Left Toe 05
+    11100182: Left Toe 06
+    11100184: Left Toe 07
+    11100186: Left Toe 08
+    11100188: Left Upper Arm
+    11100190: Left Upper Leg
+    11100192: Neck
+    11100194: Right Clavicle
+    11100196: Right Foot
+    11100198: Right Hand
+    11100200: Right Index 01
+    11100202: Right Index 02
+    11100204: Right Index 03
+    11100206: Right Lower Arm
+    11100208: Right Lower Leg
+    11100210: Right Middle 01
+    11100212: Right Middle 02
+    11100214: Right Middle 03
+    11100216: Right Pink 01
+    11100218: Right Pink 02
+    11100220: Right Pink 03
+    11100222: Right Ring 01
+    11100224: Right Ring 02
+    11100226: Right Ring 03
+    11100228: Right Thumb 01
+    11100230: Right Thumb 02
+    11100232: Right Thumb 03
+    11100234: Right Toe
+    11100236: Right Toe 01
+    11100238: Right Toe 02
+    11100240: Right Toe 03
+    11100242: Right Toe 04
+    11100244: Right Toe 05
+    11100246: Right Toe 06
+    11100248: Right Toe 07
+    11100250: Right Toe 08
+    11100252: Right Upper Arm
+    11100254: Right Upper Leg
+    11100256: Spine 01
+    11100258: Spine 02
+    11100260: Troll
+    13700000: Troll
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -326,7 +738,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
