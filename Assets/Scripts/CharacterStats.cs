@@ -19,6 +19,8 @@ public class CharacterStats : MonoBehaviour
     public Stat speed;
     public Stat attackRange;
     public Stat attackSpeed;
+    public float AttackSize = 0;
+
     public float curDCAtt = 0;
     protected int dmgGetSubArmor = 0;
     public virtual void Awake()
@@ -57,5 +59,14 @@ public class CharacterStats : MonoBehaviour
     public virtual void Die()
     {
         alive = false;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+       
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position,attackRange.GetFinalValue());
+
+
     }
 }

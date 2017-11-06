@@ -16,8 +16,6 @@ public class EnermyScript : Intertactable
     public override void Interact()
     {
         base.Interact();
-
-
     }
 }
 

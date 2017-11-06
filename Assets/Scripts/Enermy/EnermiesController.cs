@@ -9,6 +9,7 @@ public class EnermiesController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     private Vector3 startPosition;
+    private Quaternion startQuaternion;
     EnermyScript enemy;
     Combat combat;
     EnermyStats enermyStats;
@@ -20,8 +21,8 @@ public class EnermiesController : MonoBehaviour
         combat = GetComponent<Combat>();
         enemy = GetComponent<EnermyScript>();
         enermyStats = GetComponent<EnermyStats>();
-        startPosition = transform.position;
-
+        startPosition = gameObject.transform.position;
+        startQuaternion = gameObject.transform.rotation;
         agent.speed = enermyStats.speed.GetFinalValue();
     }
 
@@ -38,6 +39,7 @@ public class EnermiesController : MonoBehaviour
         Quaternion lookRatation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRatation, Time.deltaTime * 5f);
     }
+
 
     public void Attack()
     {
@@ -69,7 +71,7 @@ public class EnermiesController : MonoBehaviour
             agent.SetDestination(target.position);
             FaceTarget();
             CharacterStats targetStats = target.GetComponent<PlayerStats>();
-            if (distance < enemy.radiusInteractable)
+            if (distance < enermyStats.attackRange.GetFinalValue())
             {
                 if (targetStats != null)
                 {
@@ -77,10 +79,19 @@ public class EnermiesController : MonoBehaviour
                 }
             }
         }
-        else agent.SetDestination(startPosition);
+        else
+        {
+            agent.SetDestination(startPosition);
+            Vector3 precision = new Vector3(0, 0, 0);
+            if (Vector3.Distance(gameObject.transform.position, startPosition) < 1)
+            {               
+                gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, startQuaternion, Time.deltaTime * 5f);
+            }
 
-      
-        
+        }
+
+
+
     }
     private void OnDrawGizmosSelected()
     {
